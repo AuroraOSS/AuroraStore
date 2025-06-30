@@ -24,9 +24,6 @@
     app:startDestination="@id/splashFragment">
 
     <action
-        android:id="@+id/action_global_appDetailsFragment"
-        app:destination="@id/appDetailsFragment" />
-    <action
         android:id="@+id/action_global_categoryBrowseFragment"
         app:destination="@id/categoryBrowseFragment" />
     <action
@@ -148,25 +145,6 @@
             app:destination="@id/downloadMenuSheet" />
     </fragment>
     <fragment
-        android:id="@+id/appDetailsFragment"
-        android:name="com.aurora.store.view.ui.details.AppDetailsFragment"
-        tools:layout="@layout/fragment_details">
-        <argument
-            android:name="packageName"
-            app:argType="string" />
-        <action
-            android:id="@+id/action_appDetailsFragment_to_devAppsFragment"
-            app:destination="@id/devAppsFragment" />
-        <argument
-            android:name="app"
-            android:defaultValue="@null"
-            app:argType="com.aurora.gplayapi.data.models.App"
-            app:nullable="true" />
-        <action
-            android:id="@+id/action_appDetailsFragment_to_installErrorDialogSheet"
-            app:destination="@id/installErrorDialogSheet" />
-    </fragment>
-    <fragment
         android:id="@+id/categoryBrowseFragment"
         android:name="com.aurora.store.view.ui.commons.CategoryBrowseFragment"
         tools:layout="@layout/fragment_generic_with_toolbar">
@@ -214,14 +192,6 @@
             app:argType="com.aurora.gplayapi.data.models.StreamCluster" />
     </fragment>
     <fragment
-        android:id="@+id/devAppsFragment"
-        android:name="com.aurora.store.view.ui.details.DevAppsFragment"
-        tools:layout="@layout/fragment_generic_with_toolbar">
-        <argument
-            android:name="developerName"
-            app:argType="string" />
-    </fragment>
-    <fragment
         android:id="@+id/splashFragment"
         android:name="com.aurora.store.view.ui.splash.SplashFragment"
         tools:layout="@layout/fragment_splash">
@@ -261,12 +231,6 @@
         <action
             android:id="@+id/action_splashFragment_to_onboardingFragment"
             app:destination="@id/onboardingFragment"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/mobile_navigation"
-            app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_splashFragment_to_appDetailsFragment"
-            app:destination="@id/appDetailsFragment"
             app:launchSingleTop="true"
             app:popUpTo="@id/mobile_navigation"
             app:popUpToInclusive="true" />
