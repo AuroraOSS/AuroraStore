@@ -27,6 +27,7 @@ import com.aurora.store.compose.ui.dev.DevProfileScreen
 import com.aurora.store.compose.ui.dispenser.DispenserScreen
 import com.aurora.store.compose.ui.downloads.DownloadsScreen
 import com.aurora.store.compose.ui.favourite.FavouriteScreen
+import com.aurora.store.compose.ui.home.HomeContainerScreen
 import com.aurora.store.compose.ui.installed.InstalledScreen
 import com.aurora.store.compose.ui.onboarding.OnboardingScreen
 import com.aurora.store.compose.ui.preferences.installation.InstallerScreen
@@ -154,6 +155,10 @@ fun NavDisplay(startDestination: NavKey) {
                         backstack.add(Screen.AppDetails(packageName))
                     }
                 )
+            }
+
+            entry<Screen.Home> {
+                HomeContainerScreen()
             }
         }
     )

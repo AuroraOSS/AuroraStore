@@ -185,7 +185,7 @@ abstract class BaseFlavouredSplashFragment : BaseFragment<FragmentSplashBinding>
                 else -> SplashFragmentDirections.actionSplashFragmentToNavigationApps()
             }
         requireActivity().viewModelStore.clear() // Clear ViewModelStore to avoid bugs with logout
-        findNavController().navigate(directions)
+        requireContext().navigate(Screen.Home)
     }
 
     private fun requestAuthTokenForGoogle(accountName: String, oldToken: String? = null) {
