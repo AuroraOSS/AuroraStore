@@ -68,6 +68,7 @@
     <string name="account_refresh_done">All accounts refreshed</string>
     <string name="account_switch_failed">Couldn\'t refresh that account, so the default wasn\'t changed.</string>
     <string name="account_add_failed">Couldn\'t add that account. Please try again.</string>
+    <string name="account_exists">Account already added</string>
     <string name="action_back">"Back"</string>
     <string name="action_blacklist">"Blacklist"</string>
     <string name="action_blacklist_add">"Add to blacklist"</string>
