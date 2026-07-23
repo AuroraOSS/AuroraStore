@@ -286,6 +286,10 @@ fun AccountsScreen(
                     )
                 )
 
+                HorizontalDivider(
+                    modifier = Modifier.padding(bottom = dimensionResource(R.dimen.spacing_xsmall))
+                )
+
                 if (deviceEmails.isNotEmpty()) {
                     SectionLabel(text = stringResource(R.string.account_add_device))
                     deviceEmails.forEach { email ->
