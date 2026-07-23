@@ -5,6 +5,7 @@
 
 package com.aurora.store.compose.ui.about
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -37,6 +38,8 @@ import androidx.compose.ui.tooling.preview.PreviewWrapper
 import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
 import com.aurora.extensions.browse
+import com.aurora.extensions.copyToClipBoard
+import com.aurora.extensions.viewExternal
 import com.aurora.store.BuildConfig.VERSION_CODE
 import com.aurora.store.BuildConfig.VERSION_NAME
 import com.aurora.store.R
@@ -112,9 +115,20 @@ private fun ScreenContent(onAboutAurora: () -> Unit = {}) {
                 LinkListItem(
                     link = link,
                     onClick = {
-                        when (link.id) {
-                            0 -> onAboutAurora()
-                            else -> context.browse(link.url)
+                        when {
+                            link.id == 0 -> onAboutAurora()
+                            link.url.startsWith("http") -> context.browse(link.url)
+                            // upi:// opens a payment app; if none is installed (or for crypto
+                            // addresses, which have no handler) copy the value to the clipboard.
+                            link.url.startsWith("upi") && context.viewExternal(link.url) -> Unit
+                            else -> {
+                                context.copyToClipBoard(link.url)
+                                Toast.makeText(
+                                    context,
+                                    R.string.toast_clipboard_copied,
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                         }
                     }
                 )
