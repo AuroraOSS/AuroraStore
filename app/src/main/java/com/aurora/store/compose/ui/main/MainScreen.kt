@@ -125,6 +125,7 @@ fun MainScreen(
         topBar = {
             TopAppBar(
                 title = stringResource(MainTab.entries[pagerState.currentPage].labelRes),
+                showNavigationIcon = false,
                 actions = {
                     IconButton(onClick = { onNavigateTo(Destination.Downloads) }) {
                         Icon(
