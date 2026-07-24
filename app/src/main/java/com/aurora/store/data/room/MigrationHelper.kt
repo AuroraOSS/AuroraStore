@@ -46,6 +46,14 @@ object MigrationHelper {
         override fun migrate(db: SupportSQLiteDatabase) = migrateFrom9To10(db)
     }
 
+    val MIGRATION_10_11 = object : Migration(10, 11) {
+        override fun migrate(db: SupportSQLiteDatabase) = migrateFrom10To11(db)
+    }
+
+    val MIGRATION_11_12 = object : Migration(11, 12) {
+        override fun migrate(db: SupportSQLiteDatabase) = migrateFrom11To12(db)
+    }
+
     private const val TAG = "MigrationHelper"
 
     private fun migrateFrom1To2(database: SupportSQLiteDatabase) {
@@ -237,6 +245,54 @@ object MigrationHelper {
             database.setTransactionSuccessful()
         } catch (exception: Exception) {
             Log.e(TAG, "Failed while migrating from database version 9 to 10", exception)
+        } finally {
+            database.endTransaction()
+        }
+    }
+
+    /**
+     * Add the exodus_tracker table for the API-synced tracker dictionary.
+     */
+    private fun migrateFrom10To11(database: SupportSQLiteDatabase) {
+        database.beginTransaction()
+        try {
+            database.execSQL(
+                "CREATE TABLE IF NOT EXISTS `exodus_tracker` (" +
+                    "`id` INTEGER NOT NULL, " +
+                    "`name` TEXT NOT NULL, " +
+                    "`url` TEXT NOT NULL, " +
+                    "`signature` TEXT NOT NULL, " +
+                    "`date` TEXT NOT NULL, " +
+                    "PRIMARY KEY(`id`))"
+            )
+            database.setTransactionSuccessful()
+        } catch (exception: Exception) {
+            Log.e(TAG, "Failed while migrating from database version 10 to 11", exception)
+        } finally {
+            database.endTransaction()
+        }
+    }
+
+    /**
+     * Add a categories column to the exodus_tracker table, recreating it empty for the next sync.
+     */
+    private fun migrateFrom11To12(database: SupportSQLiteDatabase) {
+        database.beginTransaction()
+        try {
+            database.execSQL("DROP TABLE IF EXISTS `exodus_tracker`")
+            database.execSQL(
+                "CREATE TABLE IF NOT EXISTS `exodus_tracker` (" +
+                    "`id` INTEGER NOT NULL, " +
+                    "`name` TEXT NOT NULL, " +
+                    "`url` TEXT NOT NULL, " +
+                    "`signature` TEXT NOT NULL, " +
+                    "`date` TEXT NOT NULL, " +
+                    "`categories` TEXT NOT NULL, " +
+                    "PRIMARY KEY(`id`))"
+            )
+            database.setTransactionSuccessful()
+        } catch (exception: Exception) {
+            Log.e(TAG, "Failed while migrating from database version 11 to 12", exception)
         } finally {
             database.endTransaction()
         }

@@ -31,6 +31,7 @@ object Constants {
     const val EXODUS_SUBMIT_PAGE = "https://reports.exodus-privacy.eu.org/analysis/submit/#"
     const val EXODUS_REPORT_URL = "https://reports.exodus-privacy.eu.org/reports/"
     const val EXODUS_SEARCH_URL = "https://reports.exodus-privacy.eu.org/api/search/"
+    const val EXODUS_TRACKERS_URL = "https://reports.exodus-privacy.eu.org/api/trackers"
 
     const val PLEXUS_API_URL = "https://plexus.techlore.tech/api/v1/apps"
     const val PLEXUS_SEARCH_URL = "https://plexus.techlore.tech/?q="

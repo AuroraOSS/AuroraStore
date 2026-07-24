@@ -63,6 +63,7 @@ import com.aurora.store.compose.composition.LocalNetworkStatus
 import com.aurora.store.compose.navigation.Destination
 import com.aurora.store.data.model.AuthState
 import com.aurora.store.data.model.NetworkStatus
+import com.aurora.store.data.work.ExodusTrackerWorker
 import com.aurora.store.util.CertUtil.GOOGLE_ACCOUNT_TYPE
 import com.aurora.store.util.CertUtil.GOOGLE_PLAY_AUTH_TOKEN_TYPE
 import com.aurora.store.util.CertUtil.GOOGLE_PLAY_CERT
@@ -113,6 +114,7 @@ fun SplashScreen(
             AuthState.Valid, AuthState.SignedIn -> {
                 anonymousLoading = false
                 googleLoading = false
+                ExodusTrackerWorker.enqueue(context)
                 when {
                     !deepLinkDevId.isNullOrBlank() -> onNavigateTo(
                         Destination.DevProfile(deepLinkDevId)

@@ -21,6 +21,7 @@ package com.aurora.store.data.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -36,9 +37,9 @@ data class Report(
     val id: Int = -1,
     val downloads: String = String(),
     val version: String = String(),
-    val creationDate: String = String(),
-    val updatedAt: String = String(),
-    val versionCode: String = String(),
+    @SerialName("creation_date") val creationDate: String = String(),
+    @SerialName("updated_at") val updatedAt: String = String(),
+    @SerialName("version_code") val versionCode: String = String(),
     val trackers: List<Int> = listOf()
 ) : Parcelable
 
@@ -62,3 +63,18 @@ data class ExodusTracker(
         else -> false
     }
 }
+
+@Serializable
+data class TrackersResponse(
+    val trackers: Map<String, TrackerDto> = emptyMap()
+)
+
+@Serializable
+data class TrackerDto(
+    val id: Int = 0,
+    val name: String = String(),
+    @SerialName("website") val website: String = String(),
+    @SerialName("code_signature") val codeSignature: String = String(),
+    @SerialName("creation_date") val creationDate: String = String(),
+    val categories: List<String> = emptyList()
+)
