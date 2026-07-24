@@ -7,10 +7,12 @@
 package com.aurora.store.compose.navigation
 
 import android.content.Intent
-import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.VisibilityThreshold
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.slideOutVertically
@@ -18,6 +20,7 @@ import androidx.compose.animation.togetherWith
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.IntOffset
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
@@ -71,6 +74,24 @@ import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.EntryPointAccessors
 import dagger.hilt.components.SingletonComponent
+
+/**
+ * Shared spring for the horizontal slide of both the entering and leaving screen. Using a single
+ * critically-damped ([Spring.DampingRatioNoBouncy]) spec for both panels keeps them traveling in
+ * lock-step and removes the end-of-slide overshoot, which is what made the earlier mismatched
+ * enter/exit springs feel choppy.
+ */
+private val navSlideSpec = spring<IntOffset>(
+    dampingRatio = Spring.DampingRatioNoBouncy,
+    stiffness = 380f,
+    visibilityThreshold = IntOffset.VisibilityThreshold
+)
+
+/**
+ * Gentle cross-fade layered on top of the slide, matched in duration to [navSlideSpec] so the
+ * fade and the movement finish together (Material shared-axis motion).
+ */
+private val navFadeSpec = spring<Float>(stiffness = 380f)
 
 /**
  * Lets this VM-less navigation host reach the [AuthProvider] singleton for full sign-out.
@@ -195,22 +216,16 @@ fun NavDisplay(startDestination: NavKey) {
             rememberViewModelStoreNavEntryDecorator()
         ),
         transitionSpec = {
-            slideInHorizontally(
-                animationSpec = spring(dampingRatio = 0.8f, stiffness = 380f),
-                initialOffsetX = { it }
-            ) togetherWith slideOutHorizontally(targetOffsetX = { -it })
+            (slideInHorizontally(navSlideSpec) { it } + fadeIn(navFadeSpec)) togetherWith
+                (slideOutHorizontally(navSlideSpec) { -it } + fadeOut(navFadeSpec))
         },
         popTransitionSpec = {
-            slideInHorizontally(
-                animationSpec = spring(dampingRatio = 0.8f, stiffness = 380f),
-                initialOffsetX = { -it }
-            ) togetherWith slideOutHorizontally(targetOffsetX = { it })
+            (slideInHorizontally(navSlideSpec) { -it } + fadeIn(navFadeSpec)) togetherWith
+                (slideOutHorizontally(navSlideSpec) { it } + fadeOut(navFadeSpec))
         },
         predictivePopTransitionSpec = {
-            slideInHorizontally(
-                animationSpec = spring(dampingRatio = 0.8f, stiffness = 380f),
-                initialOffsetX = { -it }
-            ) togetherWith slideOutHorizontally(targetOffsetX = { it })
+            (slideInHorizontally(navSlideSpec) { -it } + fadeIn(navFadeSpec)) togetherWith
+                (slideOutHorizontally(navSlideSpec) { it } + fadeOut(navFadeSpec))
         },
         entryProvider = entryProvider {
             entry<Screen.Main> { screen ->
@@ -277,16 +292,16 @@ fun NavDisplay(startDestination: NavKey) {
             entry<Screen.Search>(
                 metadata = metadata {
                     put(NavDisplay.TransitionKey) {
-                        fadeIn() togetherWith
+                        fadeIn(navFadeSpec) togetherWith
                             ExitTransition.KeepUntilTransitionsFinished
                     }
                     put(NavDisplay.PopTransitionKey) {
-                        EnterTransition.None togetherWith
-                            slideOutVertically(targetOffsetY = { it })
+                        fadeIn(navFadeSpec) togetherWith
+                            slideOutVertically(navSlideSpec) { it }
                     }
                     put(NavDisplay.PredictivePopTransitionKey) {
-                        EnterTransition.None togetherWith
-                            slideOutVertically(targetOffsetY = { it })
+                        fadeIn(navFadeSpec) togetherWith
+                            slideOutVertically(navSlideSpec) { it }
                     }
                 }
             ) { SearchScreen() }

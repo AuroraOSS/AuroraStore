@@ -5,8 +5,11 @@
 
 package com.aurora.store.compose.ui.accounts
 
+import android.accounts.AccountManager
 import android.widget.Toast
 import androidx.activity.compose.LocalActivity
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -55,6 +58,7 @@ import com.aurora.Constants.URL_DISCLAIMER
 import com.aurora.Constants.URL_LICENSE
 import com.aurora.Constants.URL_TOS
 import com.aurora.extensions.browse
+import com.aurora.store.BuildConfig
 import com.aurora.store.R
 import com.aurora.store.compose.composable.AccountListItem
 import com.aurora.store.compose.composable.SectionHeader
@@ -64,6 +68,9 @@ import com.aurora.store.compose.preview.ThemePreviewProvider
 import com.aurora.store.compose.ui.commons.LoadingDialog
 import com.aurora.store.compose.ui.sheets.AccountActionsSheet
 import com.aurora.store.data.room.account.Account
+import com.aurora.store.util.CertUtil.GOOGLE_ACCOUNT_TYPE
+import com.aurora.store.util.PackageUtil
+import com.aurora.store.util.Preferences
 import com.aurora.store.util.RestartUtil
 import com.aurora.store.viewmodel.accounts.AccountsViewModel
 
@@ -83,6 +90,27 @@ fun AccountsScreen(
     var isSwitchingDefault by remember { mutableStateOf(false) }
     var isAddingAccount by remember { mutableStateOf(false) }
     var isRefreshing by remember { mutableStateOf(false) }
+
+    val canMicroGLogin = PackageUtil.hasSupportedMicroGVariant(context) &&
+        Preferences.getBoolean(context, Preferences.PREFERENCE_MICROG_AUTH, true)
+
+    val accountChooserLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        val accountName = result.data?.getStringExtra(AccountManager.KEY_ACCOUNT_NAME)
+        when {
+            accountName.isNullOrBlank() -> isAddingAccount = false
+            accounts.any { it.email.equals(accountName, ignoreCase = true) } -> {
+                isAddingAccount = false
+                Toast.makeText(
+                    context,
+                    context.getString(R.string.account_exists),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            else -> viewModel.addSystemAccount(accountName, activity)
+        }
+    }
 
     LaunchedEffect(Unit) {
         viewModel.switched.collect { ok ->
@@ -258,6 +286,10 @@ fun AccountsScreen(
                     )
                 )
 
+                HorizontalDivider(
+                    modifier = Modifier.padding(bottom = dimensionResource(R.dimen.spacing_xsmall))
+                )
+
                 if (deviceEmails.isNotEmpty()) {
                     SectionLabel(text = stringResource(R.string.account_add_device))
                     deviceEmails.forEach { email ->
@@ -283,11 +315,26 @@ fun AccountsScreen(
                     label = stringResource(R.string.account_add_google),
                     onClick = {
                         showAddSheet = false
-                        onNavigateTo(Destination.GoogleLogin(addAccount = true))
+                        if (canMicroGLogin) {
+                            isAddingAccount = true
+                            accountChooserLauncher.launch(
+                                AccountManager.newChooseAccountIntent(
+                                    null,
+                                    null,
+                                    arrayOf(GOOGLE_ACCOUNT_TYPE),
+                                    null,
+                                    null,
+                                    null,
+                                    null
+                                )
+                            )
+                        } else {
+                            onNavigateTo(Destination.GoogleLogin(addAccount = true))
+                        }
                     }
                 )
 
-                if (accounts.none { it.isAnonymous }) {
+                if (BuildConfig.SHOW_ANONYMOUS_LOGIN && accounts.none { it.isAnonymous }) {
                     AddOptionRow(
                         iconRes = R.drawable.ic_anonymous,
                         label = stringResource(R.string.account_add_anonymous),

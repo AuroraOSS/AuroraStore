@@ -26,14 +26,13 @@ import com.aurora.gplayapi.helpers.ReviewsHelper
 import com.aurora.gplayapi.helpers.web.WebDataSafetyHelper
 import com.aurora.gplayapi.network.IHttpClient
 import com.aurora.store.AuroraApp
-import com.aurora.store.BuildConfig
 import com.aurora.store.data.AccountRepository
+import com.aurora.store.data.ExodusRepository
 import com.aurora.store.data.event.AuthEvent
 import com.aurora.store.data.event.InstallerEvent
 import com.aurora.store.data.helper.DownloadHelper
 import com.aurora.store.data.model.AppState
 import com.aurora.store.data.model.DownloadStatus
-import com.aurora.store.data.model.ExodusReport
 import com.aurora.store.data.model.PlexusReport
 import com.aurora.store.data.model.Report
 import com.aurora.store.data.model.Scores
@@ -69,7 +68,6 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
-import org.json.JSONObject
 
 @HiltViewModel
 class AppDetailsViewModel @Inject constructor(
@@ -83,7 +81,8 @@ class AppDetailsViewModel @Inject constructor(
     private val reviewDao: ReviewDao,
     private val httpClient: IHttpClient,
     private val json: Json,
-    private val accountRepository: AccountRepository
+    private val accountRepository: AccountRepository,
+    private val exodusRepository: ExodusRepository
 ) : ViewModel() {
 
     private val _app = MutableStateFlow<App?>(null)
@@ -119,6 +118,12 @@ class AppDetailsViewModel @Inject constructor(
 
     private val _exodusReport = MutableStateFlow<Report?>(Report())
     val exodusReport = _exodusReport.asStateFlow()
+
+    private val _exodusReports = MutableStateFlow<List<Report>>(emptyList())
+    val exodusReports = _exodusReports.asStateFlow()
+
+    private val _versionLookupInProgress = MutableStateFlow(false)
+    val versionLookupInProgress = _versionLookupInProgress.asStateFlow()
 
     private val _plexusScores = MutableStateFlow<Scores?>(Scores())
     val plexusScores = _plexusScores.asStateFlow()
@@ -482,15 +487,36 @@ class AppDetailsViewModel @Inject constructor(
     }
 
     private fun fetchExodusPrivacyReport(packageName: String) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
+            val reports = exodusRepository.fetchReports(packageName)
+                .sortedByDescending { it.versionCode.toLongOrNull() ?: -1L }
+            _exodusReport.value = reports.firstOrNull()
+            _exodusReports.value = reports
+        }
+    }
+
+    /**
+     * Loads the list of known versions from Exodus for the version picker on the manual download
+     * screen. Reuses the reports already fetched for the privacy report when available, and only
+     * hits the network when nothing has been loaded yet.
+     */
+    fun lookupVersions() {
+        val packageName = app.value?.packageName ?: return
+        if (_exodusReports.value.isNotEmpty() || _versionLookupInProgress.value) return
+
+        viewModelScope.launch {
+            _versionLookupInProgress.value = true
             try {
-                _exodusReport.value = getLatestExodusReport(packageName)
-            } catch (exception: Exception) {
-                Log.e(TAG, "Failed to fetch privacy report", exception)
-                _exodusReport.value = null
+                _exodusReports.value = exodusRepository.fetchReports(packageName)
+                    .sortedByDescending { it.versionCode.toLongOrNull() ?: -1L }
+            } finally {
+                _versionLookupInProgress.value = false
             }
         }
     }
+
+    suspend fun getNewTrackers(packageName: String, installedVersionCode: Long) =
+        exodusRepository.getNewTrackers(packageName, installedVersionCode)
 
     private fun fetchPlexusReport(packageName: String) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -500,31 +526,6 @@ class AppDetailsViewModel @Inject constructor(
                 Log.e(TAG, "Failed to fetch compatibility report", exception)
                 _plexusScores.value = null
             }
-        }
-    }
-
-    private fun getLatestExodusReport(packageName: String): Report? {
-        val url = "${Constants.EXODUS_SEARCH_URL}$packageName"
-        val headers = mutableMapOf(
-            "Content-Type" to Constants.JSON_MIME_TYPE,
-            "Accept" to Constants.JSON_MIME_TYPE,
-            "Authorization" to "Token ${BuildConfig.EXODUS_API_KEY}"
-        )
-
-        val playResponse = httpClient.get(url, headers)
-        return parseExodusResponse(String(playResponse.responseBytes), packageName)
-            .firstOrNull()
-    }
-
-    private fun parseExodusResponse(response: String, packageName: String): List<Report> {
-        try {
-            val jsonObject = JSONObject(response)
-            val exodusObject = jsonObject.getJSONObject(packageName)
-            val exodusReport = json.decodeFromString<ExodusReport>(exodusObject.toString())
-
-            return exodusReport.reports
-        } catch (_: Exception) {
-            return emptyList()
         }
     }
 

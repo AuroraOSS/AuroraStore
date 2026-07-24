@@ -68,6 +68,7 @@
     <string name="account_refresh_done">All accounts refreshed</string>
     <string name="account_switch_failed">Couldn\'t refresh that account, so the default wasn\'t changed.</string>
     <string name="account_add_failed">Couldn\'t add that account. Please try again.</string>
+    <string name="account_exists">Account already added</string>
     <string name="action_back">"Back"</string>
     <string name="action_blacklist">"Blacklist"</string>
     <string name="action_blacklist_add">"Add to blacklist"</string>
@@ -124,6 +125,7 @@
     <string name="action_info">"App info"</string>
     <string name="action_update">"Update"</string>
     <string name="action_update_all">"Update all"</string>
+    <string name="action_update_anyway">Update anyway</string>
     <string name="action_view_on_play">"View on Play Store"</string>
     <string name="action_whitelist">"Whitelist"</string>
     <string name="details_beta">"Beta program"</string>
@@ -194,6 +196,10 @@
     <string name="exodus_substring">known trackers(s) found in</string>
     <string name="exodus_report_trackers"><xliff:g id="number_of_trackers">%1$d</xliff:g> known trackers(s) found in <xliff:g id="app_version_name">%2$s</xliff:g></string>
     <string name="exodus_view_report">"View report"</string>
+    <string name="exodus_report_history">Version history</string>
+    <string name="exodus_history_version">%1$s (%2$s)</string>
+    <string name="exodus_history_subtitle">%1$s • %2$d trackers</string>
+    <string name="exodus_latest">Latest</string>
     <string name="filter_review_all">"All"</string>
     <string name="filter_latest">"Latest"</string>
     <string name="filter_review_critical">"Critical"</string>
@@ -275,6 +281,8 @@
     <string name="pref_ui_similar_apps">"Similar and related apps"</string>
     <string name="pref_updates_incompatible">"Show updates that may fail"</string>
     <string name="pref_updates_incompatible_desc">"Display updates for incompatible or disabled apps that may fail to install."</string>
+    <string name="pref_updates_warn_trackers">"Warn about new trackers in app updates"</string>
+    <string name="pref_updates_warn_trackers_desc">"Show a warning before updating when the new version adds trackers that were not in the installed version"</string>
     <string name="pref_self_update">"Self-update"</string>
     <string name="pref_self_update_desc">"Offer new Aurora Store builds in the Updates tab."</string>
     <string name="pref_aurora_only">"Filter apps from other sources."</string>
@@ -313,6 +321,8 @@
     <string name="tab_top_grossing">"Top grossing"</string>
     <string name="tab_top_paid">"Top paid"</string>
     <string name="tab_trending">"Trending"</string>
+    <string name="tracker_warning_title">New trackers detected</string>
+    <string name="tracker_warning_desc">This update adds trackers that weren\'t in the installed version:</string>
     <string name="title_about">About</string>
     <string name="title_account_manager">"Accounts"</string>
     <string name="title_apps">"Apps"</string>
@@ -500,6 +510,10 @@
     <!-- ManualDownloadSheet -->
     <string name="manual_download_hint">Enter version code you wish to download</string>
     <string name="manual_download_version_error">Version code can only contain digits</string>
+    <string name="manual_download_lookup">Look up versions</string>
+    <string name="manual_download_select_version">Select a version</string>
+    <string name="manual_download_no_versions">No known versions found</string>
+    <string name="manual_download_availability_warning">Some versions may be unavailable to download or incompatible with your device.</string>
 
     <!-- WelcomeFragment -->
     <string name="faqs_title" translatable="false">FAQs</string>

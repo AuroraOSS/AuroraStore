@@ -60,6 +60,14 @@ fun Context.browse(url: String) {
     }
 }
 
+fun Context.viewExternal(url: String): Boolean = try {
+    startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
+    true
+} catch (_: Exception) {
+    Log.e(TAG, "No app to handle $url")
+    false
+}
+
 fun Context.appInfo(packageName: String) {
     try {
         val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {

@@ -48,6 +48,7 @@ import javax.inject.Singleton
 import kotlinx.serialization.json.Json
 import okhttp3.Cache
 import okhttp3.CertificatePinner
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 
 @Module
@@ -59,6 +60,22 @@ object OkHttpClientModule {
     private const val CERT_BEGIN = "-----BEGIN CERTIFICATE-----"
     private const val CERT_END = "-----END CERTIFICATE-----"
 
+    /**
+     * This network interceptor tags authenticated responses with `Vary: Authorization` so the cache
+     * partitions entries per account instead of by URL alone.
+     */
+    private val varyByAuthorizationInterceptor = Interceptor { chain ->
+        val request = chain.request()
+        val response = chain.proceed(request)
+        val needsVary = request.header("Authorization") != null &&
+            response.headers("Vary").none { it.contains("Authorization", ignoreCase = true) }
+        if (needsVary) {
+            response.newBuilder().addHeader("Vary", "Authorization").build()
+        } else {
+            response
+        }
+    }
+
     @Provides
     @Singleton
     fun providesOkHttpClientInstance(
@@ -68,6 +85,7 @@ object OkHttpClientModule {
     ): OkHttpClient {
         val okHttpClientBuilder = OkHttpClient().newBuilder()
             .cache(cache)
+            .addNetworkInterceptor(varyByAuthorizationInterceptor)
             .proxy(proxy)
             .connectTimeout(25, TimeUnit.SECONDS)
             .readTimeout(25, TimeUnit.SECONDS)
@@ -134,10 +152,15 @@ object OkHttpClientModule {
 
     @Provides
     @Singleton
-    fun providesCacheDir(@ApplicationContext context: Context): Cache = Cache(
-        directory = File(context.cacheDir, "http_cache"),
-        maxSize = 100L * 1024 * 1024
-    )
+    fun providesCacheDir(@ApplicationContext context: Context): Cache {
+        val legacyCache = File(context.cacheDir, "http_cache")
+        if (legacyCache.exists()) legacyCache.deleteRecursively()
+
+        return Cache(
+            directory = File(context.cacheDir, "http_cache_v2"),
+            maxSize = 100L * 1024 * 1024
+        )
+    }
 
     private fun getGoogleRootCertHashes(context: Context): List<String> = try {
         val certs =
