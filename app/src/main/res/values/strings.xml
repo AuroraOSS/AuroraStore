@@ -510,6 +510,10 @@
     <!-- ManualDownloadSheet -->
     <string name="manual_download_hint">Enter version code you wish to download</string>
     <string name="manual_download_version_error">Version code can only contain digits</string>
+    <string name="manual_download_lookup">Look up versions</string>
+    <string name="manual_download_select_version">Select a version</string>
+    <string name="manual_download_no_versions">No known versions found</string>
+    <string name="manual_download_availability_warning">Some versions may be unavailable to download or incompatible with your device.</string>
 
     <!-- WelcomeFragment -->
     <string name="faqs_title" translatable="false">FAQs</string>

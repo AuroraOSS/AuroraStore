@@ -65,11 +65,9 @@ import com.aurora.store.compose.preview.AppPreviewProvider
 import com.aurora.store.compose.preview.ThemePreviewProvider
 import com.aurora.store.data.model.ExodusTracker
 import com.aurora.store.data.model.Report
+import com.aurora.store.data.model.formatExodusDate
 import com.aurora.store.viewmodel.details.AppDetailsViewModel
 import com.aurora.store.viewmodel.details.ExodusViewModel
-import java.text.DateFormat
-import java.text.SimpleDateFormat
-import java.util.Locale
 
 @Composable
 fun ExodusScreen(
@@ -269,16 +267,6 @@ private fun ExodusReportDialog(
             }
         }
     )
-}
-
-private fun formatExodusDate(raw: String): String {
-    val datePart = raw.take(10)
-    return try {
-        val parsed = SimpleDateFormat("yyyy-MM-dd", Locale.US).parse(datePart)
-        if (parsed != null) DateFormat.getDateInstance(DateFormat.MEDIUM).format(parsed) else raw
-    } catch (_: Exception) {
-        raw
-    }
 }
 
 /**

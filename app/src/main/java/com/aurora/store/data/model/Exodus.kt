@@ -20,9 +20,26 @@
 package com.aurora.store.data.model
 
 import android.os.Parcelable
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.Locale
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+
+/**
+ * Formats an Exodus date string (e.g. `2023-01-01T12:34:56Z`) into a localized medium date.
+ * Falls back to the raw value if it cannot be parsed.
+ */
+fun formatExodusDate(date: String): String {
+    val datePart = date.take(10)
+    return try {
+        val parsed = SimpleDateFormat("yyyy-MM-dd", Locale.US).parse(datePart)
+        if (parsed != null) DateFormat.getDateInstance(DateFormat.MEDIUM).format(parsed) else date
+    } catch (_: Exception) {
+        date
+    }
+}
 
 @Serializable
 data class ExodusReport(

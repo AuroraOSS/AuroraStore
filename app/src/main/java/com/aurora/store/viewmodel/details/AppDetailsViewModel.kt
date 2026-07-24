@@ -122,6 +122,9 @@ class AppDetailsViewModel @Inject constructor(
     private val _exodusReports = MutableStateFlow<List<Report>>(emptyList())
     val exodusReports = _exodusReports.asStateFlow()
 
+    private val _versionLookupInProgress = MutableStateFlow(false)
+    val versionLookupInProgress = _versionLookupInProgress.asStateFlow()
+
     private val _plexusScores = MutableStateFlow<Scores?>(Scores())
     val plexusScores = _plexusScores.asStateFlow()
 
@@ -489,6 +492,26 @@ class AppDetailsViewModel @Inject constructor(
                 .sortedByDescending { it.versionCode.toLongOrNull() ?: -1L }
             _exodusReport.value = reports.firstOrNull()
             _exodusReports.value = reports
+        }
+    }
+
+    /**
+     * Loads the list of known versions from Exodus for the version picker on the manual download
+     * screen. Reuses the reports already fetched for the privacy report when available, and only
+     * hits the network when nothing has been loaded yet.
+     */
+    fun lookupVersions() {
+        val packageName = app.value?.packageName ?: return
+        if (_exodusReports.value.isNotEmpty() || _versionLookupInProgress.value) return
+
+        viewModelScope.launch {
+            _versionLookupInProgress.value = true
+            try {
+                _exodusReports.value = exodusRepository.fetchReports(packageName)
+                    .sortedByDescending { it.versionCode.toLongOrNull() ?: -1L }
+            } finally {
+                _versionLookupInProgress.value = false
+            }
         }
     }
 
