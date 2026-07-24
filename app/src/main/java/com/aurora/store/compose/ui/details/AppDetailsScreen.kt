@@ -74,6 +74,7 @@ import com.aurora.store.compose.composable.SectionHeader
 import com.aurora.store.compose.composable.ShimmerCarouselSection
 import com.aurora.store.compose.composable.StreamCarousel
 import com.aurora.store.compose.composable.TopAppBar
+import com.aurora.store.compose.composable.TrackerUpdateWarningDialog
 import com.aurora.store.compose.navigation.Destination
 import com.aurora.store.compose.navigation.Screen
 import com.aurora.store.compose.preview.AppPreviewProvider
@@ -100,6 +101,7 @@ import com.aurora.store.compose.ui.sheets.AccountPickerSheet
 import com.aurora.store.compose.ui.sheets.InstallErrorSheet
 import com.aurora.store.data.installer.AppInstaller
 import com.aurora.store.data.model.AppState
+import com.aurora.store.data.model.ExodusTracker
 import com.aurora.store.data.model.PermissionType
 import com.aurora.store.data.model.Report
 import com.aurora.store.data.model.Scores
@@ -108,9 +110,12 @@ import com.aurora.store.data.providers.PermissionProvider.Companion.isPermittedT
 import com.aurora.store.data.room.account.Account
 import com.aurora.store.util.FlavouredUtil
 import com.aurora.store.util.PackageUtil
+import com.aurora.store.util.Preferences
+import com.aurora.store.util.Preferences.PREFERENCE_UPDATES_WARN_TRACKERS
 import com.aurora.store.util.ShortcutManagerUtil
 import com.aurora.store.viewmodel.details.AppDetailsViewModel
 import com.jakewharton.processphoenix.ProcessPhoenix
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 @Composable
@@ -217,6 +222,9 @@ fun AppDetailsScreen(
                     },
                     onDeleteReview = { viewModel.deleteAppReview(loadedApp) },
                     forceSinglePane = forceSinglePane,
+                    onCheckNewTrackers = { pkg, installedVc ->
+                        viewModel.getNewTrackers(pkg, installedVc)
+                    },
                     onForceRestart = {
                         val intent = Intent(context, ComposeActivity::class.java)
                             .putExtra("packageName", packageName)
@@ -309,6 +317,11 @@ private fun ScreenContentApp(
     onDeleteReview: () -> Unit = {},
     windowAdaptiveInfo: WindowAdaptiveInfo = currentWindowAdaptiveInfoV2(),
     forceSinglePane: Boolean = false,
+    onCheckNewTrackers: suspend (
+        packageName: String,
+        installedVersionCode: Long
+    ) -> List<ExodusTracker> =
+        { _, _ -> emptyList() },
     onForceRestart: () -> Unit = {}
 ) {
     val context = LocalContext.current
@@ -334,6 +347,18 @@ private fun ScreenContentApp(
         .scaffoldValue[SupportingPaneScaffoldRole.Supporting] == PaneAdaptedValue.Hidden
     var showRestartDialog by remember { mutableStateOf(false) }
     var showAccountPicker by remember { mutableStateOf(false) }
+    val warnTrackers = remember {
+        Preferences.getBoolean(context, PREFERENCE_UPDATES_WARN_TRACKERS, false)
+    }
+    var trackerWarning by remember { mutableStateOf<List<ExodusTracker>?>(null) }
+    var isChecking by remember { mutableStateOf(false) }
+    var checkJob by remember { mutableStateOf<Job?>(null) }
+
+    // Keep the "checking" actions until the app leaves Updatable (i.e. the download it started has
+    // taken over the state), so the button doesn't flash back to "Update" between the two.
+    LaunchedEffect(state) {
+        if (state !is AppState.Updatable) isChecking = false
+    }
 
     if (showRestartDialog) {
         ForceRestartDialog(onConfirm = onForceRestart)
@@ -361,6 +386,7 @@ private fun ScreenContentApp(
                 FlavouredUtil.promptMicroGInstall(context)
 
             if (shouldPromptMicroGInstall && !ignoreMicroG) {
+                isChecking = false
                 showExtraPane(ExtraScreen.MicroG)
             } else {
                 if (accountId != null) {
@@ -371,6 +397,7 @@ private fun ScreenContentApp(
                 onNavigateBack()
             }
         } else {
+            isChecking = false
             val requiredPermissions = setOfNotNull(
                 PermissionType.INSTALL_UNKNOWN_APPS,
                 if (app.fileList.requiresObbDir()) PermissionType.STORAGE_MANAGER else null,
@@ -378,6 +405,44 @@ private fun ScreenContentApp(
             )
             showExtraPane(Screen.PermissionRationale(requiredPermissions = requiredPermissions))
         }
+    }
+
+    fun onCancelCheck() {
+        checkJob?.cancel()
+        checkJob = null
+        isChecking = false
+    }
+
+    fun onUpdateClicked() {
+        if (!warnTrackers) {
+            onInstall()
+            return
+        }
+        isChecking = true
+        checkJob = coroutineScope.launch {
+            val installedVc =
+                PackageUtil.getInstalledVersionCode(context, app.packageName)
+            val trackers = onCheckNewTrackers(app.packageName, installedVc)
+            if (trackers.isEmpty()) {
+                onInstall()
+            } else {
+                trackerWarning = trackers
+            }
+        }
+    }
+
+    trackerWarning?.let { trackers ->
+        TrackerUpdateWarningDialog(
+            trackers = trackers,
+            onConfirm = {
+                trackerWarning = null
+                onInstall()
+            },
+            onDismiss = {
+                trackerWarning = null
+                isChecking = false
+            }
+        )
     }
 
     if (showAccountPicker) {
@@ -425,6 +490,15 @@ private fun ScreenContentApp(
 
     @Composable
     fun SetupActions() {
+        if (isChecking) {
+            Actions(
+                primaryActionDisplayName = stringResource(R.string.action_open),
+                secondaryActionDisplayName = stringResource(R.string.action_cancel),
+                isPrimaryActionEnabled = false,
+                onSecondaryAction = ::onCancelCheck
+            )
+            return
+        }
         AnimatedContent(
             targetState = state,
             contentKey = { it::class },
@@ -457,7 +531,7 @@ private fun ScreenContentApp(
                     Actions(
                         primaryActionDisplayName = stringResource(R.string.action_update),
                         secondaryActionDisplayName = stringResource(R.string.action_uninstall),
-                        onPrimaryAction = ::onInstall,
+                        onPrimaryAction = ::onUpdateClicked,
                         onSecondaryAction = onUninstall
                     )
                 }

@@ -125,6 +125,7 @@
     <string name="action_info">"App info"</string>
     <string name="action_update">"Update"</string>
     <string name="action_update_all">"Update all"</string>
+    <string name="action_update_anyway">Update anyway</string>
     <string name="action_view_on_play">"View on Play Store"</string>
     <string name="action_whitelist">"Whitelist"</string>
     <string name="details_beta">"Beta program"</string>
@@ -195,6 +196,10 @@
     <string name="exodus_substring">known trackers(s) found in</string>
     <string name="exodus_report_trackers"><xliff:g id="number_of_trackers">%1$d</xliff:g> known trackers(s) found in <xliff:g id="app_version_name">%2$s</xliff:g></string>
     <string name="exodus_view_report">"View report"</string>
+    <string name="exodus_report_history">Version history</string>
+    <string name="exodus_history_version">%1$s (%2$s)</string>
+    <string name="exodus_history_subtitle">%1$s • %2$d trackers</string>
+    <string name="exodus_latest">Latest</string>
     <string name="filter_review_all">"All"</string>
     <string name="filter_latest">"Latest"</string>
     <string name="filter_review_critical">"Critical"</string>
@@ -276,6 +281,8 @@
     <string name="pref_ui_similar_apps">"Similar and related apps"</string>
     <string name="pref_updates_incompatible">"Show updates that may fail"</string>
     <string name="pref_updates_incompatible_desc">"Display updates for incompatible or disabled apps that may fail to install."</string>
+    <string name="pref_updates_warn_trackers">"Warn about new trackers in app updates"</string>
+    <string name="pref_updates_warn_trackers_desc">"Show a warning before updating when the new version adds trackers that were not in the installed version"</string>
     <string name="pref_self_update">"Self-update"</string>
     <string name="pref_self_update_desc">"Offer new Aurora Store builds in the Updates tab."</string>
     <string name="pref_aurora_only">"Filter apps from other sources."</string>
@@ -314,6 +321,8 @@
     <string name="tab_top_grossing">"Top grossing"</string>
     <string name="tab_top_paid">"Top paid"</string>
     <string name="tab_trending">"Trending"</string>
+    <string name="tracker_warning_title">New trackers detected</string>
+    <string name="tracker_warning_desc">This update adds trackers that weren\'t in the installed version:</string>
     <string name="title_about">About</string>
     <string name="title_account_manager">"Accounts"</string>
     <string name="title_apps">"Apps"</string>

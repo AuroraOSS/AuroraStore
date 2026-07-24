@@ -23,7 +23,9 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -38,6 +40,7 @@ import com.aurora.extensions.requiresObbDir
 import com.aurora.store.MainViewModel
 import com.aurora.store.R
 import com.aurora.store.compose.composable.TopAppBar
+import com.aurora.store.compose.composable.TrackerUpdateWarningDialog
 import com.aurora.store.compose.composition.LocalNetworkStatus
 import com.aurora.store.compose.navigation.Destination
 import com.aurora.store.compose.ui.apps.AppsGamesScreen
@@ -45,11 +48,16 @@ import com.aurora.store.compose.ui.commons.MoreSheet
 import com.aurora.store.compose.ui.commons.NetworkScreen
 import com.aurora.store.compose.ui.sheets.AppUpdateSheet
 import com.aurora.store.compose.ui.updates.UpdatesScreen
+import com.aurora.store.data.model.ExodusTracker
 import com.aurora.store.data.model.NetworkStatus
 import com.aurora.store.data.model.PermissionType
 import com.aurora.store.data.providers.PermissionProvider.Companion.isGranted
 import com.aurora.store.data.room.update.Update
+import com.aurora.store.util.PackageUtil
+import com.aurora.store.util.Preferences
+import com.aurora.store.util.Preferences.PREFERENCE_UPDATES_WARN_TRACKERS
 import com.aurora.store.viewmodel.all.UpdatesViewModel
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 private enum class MainTab(
@@ -74,6 +82,7 @@ fun MainScreen(
         initialValue = null
     )
     val updateCount = updates?.size ?: 0
+    val downloads by updatesViewModel.downloadsList.collectAsStateWithLifecycle()
 
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(
@@ -87,6 +96,20 @@ fun MainScreen(
 
     var showMoreSheet by remember { mutableStateOf(false) }
     var appUpdateTarget by remember { mutableStateOf<Update?>(null) }
+    var trackerWarning by remember {
+        mutableStateOf<Pair<Update, List<ExodusTracker>>?>(null)
+    }
+    val checkingJobs = remember { mutableStateMapOf<String, Job>() }
+
+    // Once the download a check kicked off actually appears, drop the "checking" marker so the
+    // item's in-progress state is driven purely by the download (no flash back to "Update").
+    LaunchedEffect(downloads) {
+        checkingJobs.keys.toList().forEach { pkg ->
+            if (downloads.any { it.packageName == pkg && !it.isFinished }) {
+                checkingJobs.remove(pkg)
+            }
+        }
+    }
 
     fun handleNavigation(destination: Destination) {
         when (destination) {
@@ -200,13 +223,12 @@ fun MainScreen(
                         pageType = 1,
                         onNavigateTo = ::handleNavigation
                     )
-                    MainTab.UPDATES -> UpdatesScreen(
-                        viewModel = updatesViewModel,
-                        onNavigateTo = ::handleNavigation,
-                        onRequestUpdate = { update ->
+                    MainTab.UPDATES -> {
+                        fun performUpdate(update: Update) {
                             if (update.fileList.requiresObbDir() &&
                                 !isGranted(context, PermissionType.STORAGE_MANAGER)
                             ) {
+                                checkingJobs.remove(update.packageName)
                                 onNavigateTo(
                                     Destination.PermissionRationale(
                                         setOf(PermissionType.STORAGE_MANAGER)
@@ -215,28 +237,97 @@ fun MainScreen(
                             } else {
                                 updatesViewModel.download(update)
                             }
-                        },
-                        onRequestUpdateAll = { selectedUpdates ->
-                            val needsObb = selectedUpdates.any {
-                                it.fileList.requiresObbDir()
-                            }
-                            if (needsObb && !isGranted(context, PermissionType.STORAGE_MANAGER)) {
-                                onNavigateTo(
-                                    Destination.PermissionRationale(
-                                        setOf(PermissionType.STORAGE_MANAGER)
+                        }
+
+                        UpdatesScreen(
+                            viewModel = updatesViewModel,
+                            onNavigateTo = ::handleNavigation,
+                            onRequestUpdate = { update ->
+                                if (!Preferences.getBoolean(
+                                        context,
+                                        PREFERENCE_UPDATES_WARN_TRACKERS,
+                                        false
                                     )
-                                )
-                            } else {
-                                updatesViewModel.downloadAll(selectedUpdates)
-                            }
-                        },
-                        onCancelUpdate = { packageName ->
-                            updatesViewModel.cancelDownload(packageName)
-                        },
-                        onCancelAll = { updatesViewModel.cancelAll() }
-                    )
+                                ) {
+                                    performUpdate(update)
+                                } else {
+                                    val job = coroutineScope.launch {
+                                        val installedVc = PackageUtil.getInstalledVersionCode(
+                                            context,
+                                            update.packageName
+                                        )
+                                        val trackers = updatesViewModel.getNewTrackers(
+                                            update.packageName,
+                                            installedVc
+                                        )
+                                        if (trackers.isEmpty()) {
+                                            performUpdate(update)
+                                        } else {
+                                            trackerWarning = update to trackers
+                                        }
+                                    }
+                                    checkingJobs[update.packageName] = job
+                                }
+                            },
+                            onRequestUpdateAll = { selectedUpdates ->
+                                val needsObb = selectedUpdates.any {
+                                    it.fileList.requiresObbDir()
+                                }
+                                if (needsObb &&
+                                    !isGranted(context, PermissionType.STORAGE_MANAGER)
+                                ) {
+                                    onNavigateTo(
+                                        Destination.PermissionRationale(
+                                            setOf(PermissionType.STORAGE_MANAGER)
+                                        )
+                                    )
+                                } else {
+                                    updatesViewModel.downloadAll(selectedUpdates)
+                                }
+                            },
+                            onCancelUpdate = { packageName ->
+                                if (downloads.any {
+                                        it.packageName == packageName && !it.isFinished
+                                    }
+                                ) {
+                                    checkingJobs.remove(packageName)
+                                    updatesViewModel.cancelDownload(packageName)
+                                } else {
+                                    checkingJobs.remove(packageName)?.cancel()
+                                }
+                            },
+                            onCancelAll = { updatesViewModel.cancelAll() },
+                            checkingPackages = checkingJobs.keys
+                        )
+                    }
                 }
             }
         }
+    }
+
+    trackerWarning?.let { (update, trackers) ->
+        TrackerUpdateWarningDialog(
+            trackers = trackers,
+            onConfirm = {
+                val pending = update
+                trackerWarning = null
+                if (pending.fileList.requiresObbDir() &&
+                    !isGranted(context, PermissionType.STORAGE_MANAGER)
+                ) {
+                    checkingJobs.remove(pending.packageName)
+                    onNavigateTo(
+                        Destination.PermissionRationale(
+                            setOf(PermissionType.STORAGE_MANAGER)
+                        )
+                    )
+                } else {
+                    updatesViewModel.download(pending)
+                }
+            },
+            onDismiss = {
+                trackerWarning = null
+                checkingJobs.remove(update.packageName)
+            }
+        )
     }
 }
