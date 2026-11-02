@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="details_dev_website">Site</string>
+    <string name="details_dev_website">Site da web</string>
     <string name="details_dev_profile">Perfil do desenvolvedor</string>
     <string name="details_dev_details">Contato do desenvolvedor</string>
     <string name="details_dev_address">Endereço</string>
