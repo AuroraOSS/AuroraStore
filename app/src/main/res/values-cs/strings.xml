@@ -648,4 +648,38 @@
         <item quantity="other">%1$d aplikace potřebují %2$s, ale pouze %3$s je k dispozici.</item>
     </plurals>
     <string name="download_sort_date_downloaded">Datum stažení</string>
+    <string name="download_version_unavailable">Verze %1$d není pro toto zařízení dostupná</string>
+    <string name="download_signing_key_rotated">Pro aktualizaci této aplikace se přihlaste pomocí účtu Google: její podpisový klíč byl změněn a anonymní účty to nedokáží vyřešit</string>
+    <string name="installer_status_aborted">Instalace zrušena</string>
+    <string name="pref_download_languages_title">Stáhnout všechny mé jazyky</string>
+    <string name="pref_download_languages_summary">Také stáhnout jazykové soubory pro ostatní jazyky nastavené na tomto zařízení. Stahování budou větší</string>
+    <string name="pref_updates_warn_permissions">Varovat o nových oprávněních při aktualizacích aplikací</string>
+    <string name="pref_updates_warn_permissions_desc">Zobrazit varování před aktualizací, pokud nová verze vyžaduje oprávnění, která se nenacházela v nainstalované verzi</string>
+    <string name="permission_warning_title">Požadována nová oprávnění</string>
+    <string name="permission_warning_desc">Tato aktualizace požaduje oprávnění, která nainstalovaná verze nemá:</string>
+    <plurals name="updates_skipped_new_permissions">
+        <item quantity="one">Přeskočena %1$d aktualizace požadující nová oprávnění</item>
+        <item quantity="few">Přeskočeny %1$d aktualizace požadující nová oprávnění</item>
+        <item quantity="many">Přeskočeno %1$d aktualizací požadujících nová oprávnění</item>
+        <item quantity="other">Přeskočeno %1$d aktualizací požadujících nová oprávnění</item>
+    </plurals>
+    <string name="permission_new">Nové</string>
+    <string name="details_play_listing">Na Google Play</string>
+    <string name="details_top_chart">%1$s v %2$s</string>
+    <string name="action_continue">Pokračovat</string>
+    <string name="app_links_owned_title">Odkazy Play se otevřou v aplikaci %1$s</string>
+    <string name="app_links_owned_desc">Android neumožňuje aplikaci Aurora Store převzít odkazy, které má aplikace %1$s ověřené. Nejprve vypněte „Otevírat podporované odkazy“ a poté tuto možnost udělte aplikaci Aurora Store.</string>
+    <string name="app_links_owned_open">Otevřít nastavení</string>
+    <string name="review_developer_reply">Odpověď od vývojáře</string>
+    <string name="permission_group_system">Systém Android</string>
+    <string name="permission_group_google">Google</string>
+    <string name="permission_group_other">Jiné</string>
+    <string name="toast_beta_failed">Nepodařilo se aktualizovat zapojení do beta programu</string>
+    <string name="toast_beta_left">Opustili jste beta program</string>
+    <string name="google_login_timeout">Google neodpověděl včas. Přihlaste se prosím znovu.</string>
+    <string name="toast_spoof_import_invalid">Neplatná konfigurace zařízení, chybějící nebo nesprávná pole</string>
+    <string name="toast_spoof_device_invalid">Aktivní spoofing zařízen je neplatný, vráceno na výchozí</string>
+    <string name="session_rejected">Google Play trvale odmítá tuto relaci. Pokud používáte VPN, vyzkoušejte jiný server a poté se znovu přihlaste.</string>
+    <string name="pref_ui_appearance">Vzhled</string>
+    <string name="authentication_required_update_check">Kontrola aktualizací vyžaduje přihlášený účet Google Play; anonymní relace zatím nezvládnou hromadnou kontrolu.</string>
 </resources>
