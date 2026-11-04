@@ -642,4 +642,37 @@
         <item quantity="other">%1$d aplicații necesită %2$s, însă sunt disponibili doar %3$s.</item>
     </plurals>
     <string name="download_sort_date_downloaded">Data descărcării</string>
+    <string name="download_version_unavailable">Versiunea %1$d nu este disponibilă pentru acest dispozitiv</string>
+    <string name="download_signing_key_rotated">Conectează-te cu un cont Google pentru a actualiza această aplicație: cheia de semnare a acesteia s-a schimbat, iar descărcările anonime nu pot gestiona această modificare</string>
+    <string name="installer_status_aborted">Instalarea a fost anulată</string>
+    <string name="pref_download_languages_title">Descarcă toate limbile pe care le cunosc</string>
+    <string name="pref_download_languages_summary">Descarcă de asemenea, fișierele de limbă pentru celelalte limbi configurate pe acest dispozitiv. Fișierele descărcate vor fi mai mari</string>
+    <string name="pref_updates_warn_permissions">Avertizare privind noile permisiuni din actualizările aplicației</string>
+    <string name="pref_updates_warn_permissions_desc">Afișează un mesaj de avertizare înainte de actualizare, în cazul în care noua versiune solicită permisiuni care nu existau în versiunea instalată</string>
+    <string name="permission_warning_title">S-au solicitat noi permisiuni</string>
+    <string name="permission_warning_desc">Această actualizare solicită permisiuni pe care versiunea instalată nu le are:</string>
+    <plurals name="updates_skipped_new_permissions">
+        <item quantity="one">S-a omis %1$d actualizare ce solicită permisiuni noi</item>
+        <item quantity="few">S-au omis %1$d actualizări ce solicită permisiuni noi</item>
+        <item quantity="other">S-au omis %1$d de actualizări ce solicită permisiuni noi</item>
+    </plurals>
+    <string name="permission_new">Nou</string>
+    <string name="details_play_listing">Pe Google Play</string>
+    <string name="details_top_chart">%1$s în %2$s</string>
+    <string name="action_continue">Continuă</string>
+    <string name="app_links_owned_title">Linkurile Play se deschid în %1$s</string>
+    <string name="app_links_owned_desc">Android nu permite aplicației Aurora Store să preia linkurile verificate de %1$s. Dezactivează mai întâi opțiunea „Deschide linkurile acceptate” pentru aceasta, apoi acordă această permisiune aplicației Aurora Store.</string>
+    <string name="app_links_owned_open">Deschide setările</string>
+    <string name="review_developer_reply">Răspunsul dezvoltatorului</string>
+    <string name="permission_group_system">Sistemul Android</string>
+    <string name="permission_group_google">Google</string>
+    <string name="permission_group_other">Alte</string>
+    <string name="toast_beta_failed">Nu s-a putut actualiza înscrierea în programul beta</string>
+    <string name="toast_beta_left">Ai părăsit programul beta</string>
+    <string name="google_login_timeout">Google nu a răspuns la timp. Autentifică-te din nou.</string>
+    <string name="toast_spoof_import_invalid">Configurație nevalidă a dispozitivului, câmpuri lipsă sau incorecte</string>
+    <string name="toast_spoof_device_invalid">Falsificarea dispozitivului activ este nevalidă; s-a revenit la setările implicite</string>
+    <string name="session_rejected">Google Play respinge în mod repetat această sesiune. Dacă folosești un VPN, încearcă un alt server, apoi conectează-te din nou.</string>
+    <string name="pref_ui_appearance">Aspect</string>
+    <string name="authentication_required_update_check">Pentru a verifica dacă există actualizări, este necesar să ai un cont Google Play cu care să fii autentificat; sesiunile anonime nu permit încă verificarea în bloc.</string>
 </resources>
