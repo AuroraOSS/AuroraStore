@@ -642,4 +642,8 @@
     <string name="download_sort_date_downloaded">Date de téléchargement</string>
     <string name="notification_none">Il n’y a rien ici</string>
     <string name="installer_provider">%1$s · Servi par %2$s</string>
+    <string name="download_version_unavailable">La version %1$d n\'est pas disponible pour cet appareil</string>
+    <string name="download_signing_key_rotated">Connectez-vous avec un compte Google pour mettre à jour cette appli : sa clé de signature a changé, et les téléchargements anonymes ne peuvent pas le gérer</string>
+    <string name="installer_status_aborted">Installation annulée</string>
+    <string name="pref_download_languages_title">Télécharger toutes mes langues</string>
 </resources>
