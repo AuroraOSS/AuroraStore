@@ -646,4 +646,33 @@
     <string name="download_signing_key_rotated">Connectez-vous avec un compte Google pour mettre à jour cette appli : sa clé de signature a changé, et les téléchargements anonymes ne peuvent pas le gérer</string>
     <string name="installer_status_aborted">Installation annulée</string>
     <string name="pref_download_languages_title">Télécharger toutes mes langues</string>
+    <string name="pref_download_languages_summary">Récupérez également les fichiers de langue pour les autres langues configurées sur cet appareil. Les téléchargements seront plus volumineux.</string>
+    <string name="pref_updates_warn_permissions">Signaler les nouvelles autorisations lors des mises à jour de l\'application</string>
+    <string name="pref_updates_warn_permissions_desc">Afficher un message d\'avertissement avant la mise à jour lorsque la nouvelle version demande des autorisations qui n\'étaient pas requises dans la version installée</string>
+    <string name="permission_warning_title">Nouvelles autorisations demandées</string>
+    <string name="permission_warning_desc">Cette mise à jour demande des autorisations dont la version installée ne dispose pas :</string>
+    <string name="toast_spoof_import_invalid">Configuration de périphérique non valide, champs manquants ou mal formés</string>
+    <string name="toast_spoof_device_invalid">L\'usurpation de l\'appareil actif n\'est pas valide ; retour aux paramètres par défaut</string>
+    <string name="session_rejected">Google Play refuse systématiquement cette session. Si vous utilisez un VPN, essayez un autre serveur, puis reconnectez-vous.</string>
+    <string name="pref_ui_appearance">Apparence</string>
+    <string name="authentication_required_update_check">Pour vérifier la disponibilité des mises à jour, il faut être connecté à un compte Google Play ; les sessions anonymes ne permettent pas encore d\'effectuer des vérifications groupées.</string>
+    <string name="permission_new">Nouveau</string>
+    <string name="details_play_listing">Sur Google Play</string>
+    <string name="details_top_chart">%1$s sur %2$s</string>
+    <string name="action_continue">Continuer</string>
+    <string name="app_links_owned_title">Les liens vers les vidéos s\'ouvrent dans %1$s</string>
+    <string name="app_links_owned_desc">Android ne permet pas à Aurora Store de prendre en charge les liens que %1$s a vérifiés. Désactivez d\'abord l\'option « Ouvrir les liens pris en charge » pour cette application, puis accordez cette autorisation à Aurora Store.</string>
+    <string name="app_links_owned_open">Ouvrir les paramètres</string>
+    <string name="review_developer_reply">Réponse du développeur</string>
+    <string name="permission_group_system">Système Android</string>
+    <string name="permission_group_google">Google</string>
+    <string name="permission_group_other">Autres</string>
+    <string name="toast_beta_failed">Impossible de mettre à jour l\'inscription à la version bêta</string>
+    <string name="toast_beta_left">Vous avez quitté le programme bêta</string>
+    <string name="google_login_timeout">Google n\'a pas répondu à temps. Veuillez vous reconnecter.</string>
+    <plurals name="updates_skipped_new_permissions">
+        <item quantity="one">%1$d mise à jour demandant de nouvelles autorisations a été ignorée</item>
+        <item quantity="many">%1$d mises à jour demandant de nouvelles autorisations ont été ignorées</item>
+        <item quantity="other">%1$d mises à jour demandant de nouvelles autorisations ont été ignorées</item>
+    </plurals>
 </resources>
