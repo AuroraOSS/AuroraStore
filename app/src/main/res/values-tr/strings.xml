@@ -662,4 +662,10 @@
     <string name="session_rejected">Google Play bu oturumu sürekli reddediyor. VPN kullanıyorsanız, başka bir sunucu deneyin ve tekrar giriş yapın.</string>
     <string name="pref_ui_appearance">Görünüm</string>
     <string name="authentication_required_update_check">Güncellemeleri kontrol etmek için oturum açmış bir Google Play hesabına ihtiyacınız var; anonim oturumlar henüz toplu güncelleme kontrolü yapamıyor.</string>
+    <string name="download_version_unavailable">Bu aygıt için %1$d sürümü yok</string>
+    <plurals name="updates_skipped_new_permissions">
+        <item quantity="one">Yeni izinler isteyen %1$d güncelleme atlandı</item>
+        <item quantity="other">Yeni izinler isteyen %1$d güncelleme atlandı</item>
+    </plurals>
+    <string name="details_top_chart">%1$s / %2$s</string>
 </resources>
