@@ -636,4 +636,30 @@
         <item quantity="other">%1$d uygulama için %2$s gerekiyor, ancak yalnızca %3$s var.</item>
     </plurals>
     <string name="download_sort_date_downloaded">İndirme tarihi</string>
+    <string name="download_signing_key_rotated">Bu uygulamayı güncellemek için bir Google hesabıyla oturum açın: imzalama anahtarı değişti ve anonim indirmeler bunu desteklemiyor</string>
+    <string name="installer_status_aborted">Kurulum iptal edildi</string>
+    <string name="pref_download_languages_title">Tüm dillerimi indir</string>
+    <string name="pref_download_languages_summary">Ayrıca bu cihazda ayarlanmış diğer diller için dil dosyalarını da indirin. İndirilen dosyalar daha büyük olacaktır</string>
+    <string name="pref_updates_warn_permissions">Uygulama güncellemelerindeki yeni izinler hakkında uyarı verin</string>
+    <string name="pref_updates_warn_permissions_desc">Yeni sürüm, yüklü sürümde bulunmayan izinler istediğinde güncellemeden önce bir uyarı göster</string>
+    <string name="permission_warning_title">Yeni izinler talep edildi</string>
+    <string name="permission_warning_desc">Bu güncelleme, yüklü sürümün sahip olmadığı izinleri talep ediyor:</string>
+    <string name="permission_new">Yeni</string>
+    <string name="details_play_listing">Google Play\'de</string>
+    <string name="action_continue">Devam et</string>
+    <string name="app_links_owned_title">Play bağlantıları %1$s içinde açılacak</string>
+    <string name="app_links_owned_desc">Android, Aurora Store\'un %1$s tarafından doğrulanmış bağlantıları devralmasına izin vermiyor. Öncelikle \"Desteklenen bağlantıları aç\" seçeneğini kapatın, ardından Aurora Store\'a bu izni verin.</string>
+    <string name="app_links_owned_open">Ayarları aç</string>
+    <string name="review_developer_reply">Geliştiriciden yanıt</string>
+    <string name="permission_group_system">Android sistemi</string>
+    <string name="permission_group_google">Google</string>
+    <string name="permission_group_other">Diğer</string>
+    <string name="toast_beta_failed">Beta kaydı güncellenemedi</string>
+    <string name="toast_beta_left">Beta programından ayrıldınız</string>
+    <string name="google_login_timeout">Google zamanında yanıt vermedi. Lütfen tekrar giriş yapın.</string>
+    <string name="toast_spoof_import_invalid">Geçersiz cihaz yapılandırması, eksik veya hatalı alanlar</string>
+    <string name="toast_spoof_device_invalid">Aktif cihaz sahtekarlığı geçersiz, varsayılan ayarlara geri döndürüldü</string>
+    <string name="session_rejected">Google Play bu oturumu sürekli reddediyor. VPN kullanıyorsanız, başka bir sunucu deneyin ve tekrar giriş yapın.</string>
+    <string name="pref_ui_appearance">Görünüm</string>
+    <string name="authentication_required_update_check">Güncellemeleri kontrol etmek için oturum açmış bir Google Play hesabına ihtiyacınız var; anonim oturumlar henüz toplu güncelleme kontrolü yapamıyor.</string>
 </resources>
