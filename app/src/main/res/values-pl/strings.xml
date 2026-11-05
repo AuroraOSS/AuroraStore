@@ -100,7 +100,7 @@
     <string name="toast_apk_blacklisted">Dodano do czarnej listy</string>
     <string name="toast_anonymous_restriction">Niedostępne na kontach anonimowych</string>
     <string name="title_updates">Aktualizacje</string>
-    <string name="title_spoof_manager">Menedżer podmiany</string>
+    <string name="title_spoof_manager">Menedżer emulacji</string>
     <string name="title_settings">Ustawienia</string>
     <string name="title_purchase_history">Historia zakupów</string>
     <string name="title_no_network">Brak internetu</string>
@@ -675,5 +675,9 @@
     <string name="toast_beta_left">Opuściłeś program beta</string>
     <string name="toast_beta_failed">Nie udało się zaktualizować rejestracji w programie beta</string>
     <string name="app_links_owned_title">Linki do Google Play są otwierane w %1$s</string>
-    <string name="pref_download_languages_summary">Pobierz również pliki językowe dla innych języków ustawionych na tym urządzeniu. Rozmiar pliku do pobrania będzie większy</string>
+    <string name="pref_download_languages_summary">Pobierz również pliki językowe dla innych języków używanych na tym urządzeniu. Rozmiar pliku do pobrania będzie większy</string>
+    <string name="authentication_required_update_check">Sprawdzanie aktualizacji wymaga zalogowanie się na konto Google Play. Sesje anonimowe nie obsługują jeszcze zbiorczego sprawdzania aktualizacji.</string>
+    <string name="session_rejected">Google Play odrzucił bieżącą sesję. Jeśli korzystasz z VPN, spróbuj zmienić serwer i zaloguj się ponownie.</string>
+    <string name="toast_spoof_device_invalid">Aktywna emulacja urządzenia jest nieprawidłowa. Przywrócono ustawienia domyślne</string>
+    <string name="details_top_chart">%1$s w %2$s</string>
 </resources>
