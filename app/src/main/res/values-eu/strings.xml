@@ -655,7 +655,7 @@
     <string name="review_developer_reply">Garatzailearen erantzuna</string>
     <string name="permission_group_system">Android sistema</string>
     <string name="permission_group_google">Google</string>
-    <string name="permission_group_other">Bestelakoak</string>
+    <string name="permission_group_other">Bestelakoa</string>
     <string name="toast_beta_failed">Ezin izan da beta-programako izen-ematea eguneratu</string>
     <string name="toast_beta_left">Beta programatik irten zara</string>
     <string name="google_login_timeout">Google-k ez du garaiz erantzun. Hasi saioa berriro.</string>
