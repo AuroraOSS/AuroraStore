@@ -457,7 +457,7 @@
     <string name="manual_download_version_error">Kode versi hanya dapat berisi angka</string>
     <string name="preparing_to_install">Mempersiapkan pemasangan</string>
     <string name="permission_required">Izin yang diperlukan</string>
-    <string name="permissions_required">Izin yang diperlukan</string>
+    <string name="permissions_required">Izin diperlukan</string>
     <string name="installer_microg_misconfigured">Pemasang MicroG gagal memasang aplikasi, kemungkinan disebabkan oleh konfigurasi yang salah.</string>
     <string name="pref_install_mode_microg">Pemasang MicroG</string>
     <string name="microg_installer_subtitle">Membutuhkan aplikasi pendamping microG untuk dipasang</string>
@@ -630,4 +630,35 @@
         <item quantity="other">%1$d aplikasi memerlukan %2$s, tetapi hanya %3$s yang tersedia.</item>
     </plurals>
     <string name="download_sort_date_downloaded">Tanggal diunduh</string>
+    <string name="download_version_unavailable">Versi %1$d tidak tersedia untuk perangkat ini</string>
+    <string name="download_signing_key_rotated">Masuk dengan akun Google untuk memperbarui aplikasi ini: kunci penandatanganannya telah berubah, dan unduhan anonim tidak dapat menangani perubahan tersebut</string>
+    <string name="installer_status_aborted">Instalasi dibatalkan</string>
+    <string name="pref_download_languages_title">Unduh semua bahasa saya</string>
+    <string name="pref_download_languages_summary">Unduh juga berkas bahasa untuk bahasa lain yang diatur di perangkat ini. Ukuran unduhan akan lebih besar</string>
+    <string name="pref_updates_warn_permissions">Peringatkan tentang izin baru dalam pembaruan aplikasi</string>
+    <string name="pref_updates_warn_permissions_desc">Tampilkan peringatan sebelum memperbarui jika versi baru meminta izin yang tidak ada pada versi terinstal</string>
+    <string name="permission_warning_title">Izin baru diminta</string>
+    <string name="permission_warning_desc">Pembaruan ini meminta izin yang tidak dimiliki versi terinstal:</string>
+    <plurals name="updates_skipped_new_permissions">
+        <item quantity="other">Melewati %1$d pembaruan yang meminta izin baru</item>
+    </plurals>
+    <string name="permission_new">Baru</string>
+    <string name="details_play_listing">Di Google Play</string>
+    <string name="details_top_chart">%1$s di %2$s</string>
+    <string name="action_continue">Lanjutkan</string>
+    <string name="app_links_owned_title">Tautan Play dibuka di %1$s</string>
+    <string name="app_links_owned_desc">Android tidak mengizinkan Aurora Store mengambil alih tautan yang telah diverifikasi oleh %1$s. Nonaktifkan \"Buka tautan yang didukung\" untuk aplikasi tersebut terlebih dahulu, lalu berikan izin ini kepada Aurora Store.</string>
+    <string name="app_links_owned_open">Buka pengaturan</string>
+    <string name="review_developer_reply">Tanggapan pengembang</string>
+    <string name="permission_group_system">Sistem Android</string>
+    <string name="permission_group_google">Google</string>
+    <string name="permission_group_other">Lainnya</string>
+    <string name="toast_beta_failed">Tidak dapat memperbarui status keikutsertaan beta</string>
+    <string name="toast_beta_left">Anda telah keluar dari program beta</string>
+    <string name="google_login_timeout">Google tidak merespons tepat waktu. Silakan masuk kembali.</string>
+    <string name="toast_spoof_import_invalid">Konfigurasi perangkat tidak valid, ada kolom yang hilang atau tidak sesuai format</string>
+    <string name="toast_spoof_device_invalid">Penyamaran perangkat yang aktif tidak valid, dikembalikan ke pengaturan default</string>
+    <string name="session_rejected">Google Play terus menolak sesi ini. Jika Anda menggunakan VPN, coba server lain, lalu masuk kembali.</string>
+    <string name="pref_ui_appearance">Tampilan</string>
+    <string name="authentication_required_update_check">Pemeriksaan pembaruan memerlukan akun Google Play yang sudah masuk; sesi anonim belum dapat memeriksa pembaruan secara massal.</string>
 </resources>
