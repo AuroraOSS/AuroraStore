@@ -680,4 +680,6 @@
     <string name="session_rejected">Google Play odrzucił bieżącą sesję. Jeśli korzystasz z VPN, spróbuj zmienić serwer i zaloguj się ponownie.</string>
     <string name="toast_spoof_device_invalid">Aktywna emulacja urządzenia jest nieprawidłowa. Przywrócono ustawienia domyślne</string>
     <string name="details_top_chart">%1$s w %2$s</string>
+    <string name="download_signing_key_rotated">Zaloguj się za pomocą konta Google, aby zaktualizować tę aplikację: zmienił się jej klucz podpisujący, a anonimowe pobrania nie obsługują tej zmiany</string>
+    <string name="app_links_owned_desc">System Android nie pozwala aplikacji Aurora Store przejmować linków, co potwierdził %1$s. Najpierw wyłącz dla niej opcję „Otwieraj obsługiwane linki”, a następnie przyznaj to uprawnienie aplikacji Aurora Store.</string>
 </resources>
