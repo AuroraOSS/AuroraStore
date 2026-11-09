@@ -636,4 +636,35 @@
         <item quantity="other">%1$d tarvitsevat %2$sn, mutta vain %3$s on saatavilla.</item>
     </plurals>
     <string name="download_sort_date_downloaded">Latauksen päivämäärä</string>
+    <string name="download_version_unavailable">Versio %1$d ei ole saatavilla tälle laitteelle</string>
+    <string name="download_signing_key_rotated">Kirjaudu sisään Google-tilillä tämän sovelluksen päivittämiseksi: sen allekirjoitusavain on muuttunut, ja anonyymit lataukset eivät voi käsitellä sitä</string>
+    <string name="installer_status_aborted">Asennus peruutettu</string>
+    <string name="pref_download_languages_title">Lataa kaikki kieleni</string>
+    <string name="pref_download_languages_summary">Hae myös kielitiedostoja muille tällä laitteella oleville kielille. Lataukset ovat suuremmat</string>
+    <string name="pref_updates_warn_permissions">Varoita uusista käyttöoikeuksista sovelluspäivityksissä</string>
+    <string name="pref_updates_warn_permissions_desc">Näytä varoitus ennen päivitystä, jos uusi versio pyytää käyttöoikeuksia, joita asennetussa versiossa ei ollut</string>
+    <string name="permission_warning_title">Uudet luvat pyydettiin</string>
+    <string name="permission_warning_desc">Tämä päivitys pyytää käyttöoikeuksia, joita asennettu versio ei sisällä:</string>
+    <plurals name="updates_skipped_new_permissions">
+        <item quantity="one">%1$d päivitys, jossa pyydettiin uusia käyttöoikeuksia, ohitettiin</item>
+        <item quantity="other">%1$d päivitystä, joissa pyydettiin uusia käyttöoikeuksia, ohitettiin</item>
+    </plurals>
+    <string name="permission_new">Uusi</string>
+    <string name="details_play_listing">Google Playssa</string>
+    <string name="action_continue">Jatka</string>
+    <string name="app_links_owned_title">Videolinkit avautuvat %1$s:ssa</string>
+    <string name="app_links_owned_open">Avaa asetukset</string>
+    <string name="review_developer_reply">Kehittäjän vastaus</string>
+    <string name="permission_group_system">Android-järjestelmä</string>
+    <string name="permission_group_google">Google</string>
+    <string name="permission_group_other">Muut</string>
+    <string name="toast_beta_failed">Beta-ohjelmaan liittymistä ei voitu päivittää</string>
+    <string name="toast_beta_left">Jätit beta-ohjelman</string>
+    <string name="google_login_timeout">Google ei vastannut ajoissa. Ole hyvä ja allekirjoita uudelleen.</string>
+    <string name="toast_spoof_import_invalid">Laitteen määritykset ovat virheelliset, kenttiä puuttuu tai ne ovat virheellisiä</string>
+    <string name="toast_spoof_device_invalid">Aktiivisen laitteen väärentäminen on virheellinen, palautettu oletusasetuksiin</string>
+    <string name="session_rejected">Google Play hylkää tämän istunnon jatkuvasti. Jos käytät VPN:ää, kokeile toista palvelinta ja kirjaudu sitten uudelleen sisään.</string>
+    <string name="pref_ui_appearance">Ulkonäkö</string>
+    <string name="authentication_required_update_check">Päivitysten tarkistaminen edellyttää kirjautumista Google Play -tiliin; nimettömissä istunnoissa ei vielä voi tarkistaa päivityksiä kerralla.</string>
+    <string name="app_links_owned_desc">Android ei salli Aurora Storen avata linkkejä, jotka %1$s on vahvistanut. Poista ensin käytöstä ”Avaa tuetut linkit” -asetus ja myönnä sitten tämä oikeus Aurora Storelle.</string>
 </resources>
