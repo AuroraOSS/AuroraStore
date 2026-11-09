@@ -578,9 +578,9 @@
     <string name="toast_fav_install_none">Rien à installer</string>
     <string name="toast_fav_install_failed">Impossible de récupérer les informations sur l\'appli</string>
     <plurals name="favourites_count">
-        <item quantity="one">%1$d favori</item>
-        <item quantity="many">%1$d de favoris</item>
-        <item quantity="other">%1$d favori</item>
+        <item quantity="one">%1$d favori</item>
+        <item quantity="many">%1$d favoris</item>
+        <item quantity="other">%1$d favoris</item>
     </plurals>
     <string name="account_set_default">Définir comme compte par défaut</string>
     <string name="account_default">Par défaut</string>
@@ -603,14 +603,14 @@
     <string name="account_add_failed">Impossible d’ajouter ce compte. Réessayez.</string>
     <string name="action_switch_account">Changer de compte</string>
     <plurals name="account_count">
-        <item quantity="one">Total %1$d compte</item>
-        <item quantity="many">Total %1$d de comptes</item>
-        <item quantity="other">Total %1$d comptes</item>
+        <item quantity="one">Total %1$d compte</item>
+        <item quantity="many">Total %1$d comptes</item>
+        <item quantity="other">Total %1$d comptes</item>
     </plurals>
     <plurals name="account_refresh_failed">
         <item quantity="one">Impossible d’actualiser %1$d compte</item>
-        <item quantity="many">Impossible d’actualiser %1$d de comptes</item>
-        <item quantity="other">Impossible d’actualiser %1$d de comptes</item>
+        <item quantity="many">Impossible d’actualiser %1$d comptes</item>
+        <item quantity="other">Impossible d’actualiser %1$d comptes</item>
     </plurals>
     <string name="account_exists">Le compte est déjà ajouté</string>
     <string name="action_update_anyway">Mettre à jour quand même</string>
