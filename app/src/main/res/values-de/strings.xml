@@ -339,7 +339,7 @@
     <string name="remove">Entfernen</string>
     <string name="remove_dispenser_summary">Möchtest du den Dispenser „<xliff:g id="url">%1$s</xliff:g>“ entfernen?</string>
     <string name="about_wiki_title">Wiki</string>
-    <string name="about_wiki_summary">Antworten auf häufig gestellte Fragen (FAQs), Maßnahmen zur Fehlerbehebung und mehr finden</string>
+    <string name="about_wiki_summary">Antworten auf häufig gestellte Fragen, Maßnahmen zur Fehlerbehebung und mehr finden</string>
     <string name="add_dispenser_title">Dispenser hinzufügen</string>
     <string name="add_dispenser_summary">Hinzufügen eines Token-Dispensers zu Aurora Store. Token-Dispenser stellen Aurora Store Kontodaten zur Verfügung, um sich anonym anzumelden.</string>
     <string name="remove_dispenser_title">Dispenser entfernen?</string>
