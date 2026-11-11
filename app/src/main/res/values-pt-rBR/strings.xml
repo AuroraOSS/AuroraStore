@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="details_dev_website">Site</string>
+    <string name="details_dev_website">Site da web</string>
     <string name="details_dev_profile">Perfil do desenvolvedor</string>
     <string name="details_dev_details">Contato do desenvolvedor</string>
     <string name="details_dev_address">Endereço</string>
@@ -642,4 +642,37 @@
         <item quantity="other">%1$d aplicativos precisam de %2$s, mas apenas %3$s está disponível.</item>
     </plurals>
     <string name="download_sort_date_downloaded">Data de download</string>
+    <string name="download_version_unavailable">A versão %1$d não está disponível para este dispositivo</string>
+    <string name="download_signing_key_rotated">Entre com uma conta Google para atualizar este app: a chave de assinatura mudou, e downloads anônimos não admitem isso</string>
+    <string name="installer_status_aborted">Instalação cancelada</string>
+    <string name="pref_download_languages_title">Baixar todos os meus idiomas</string>
+    <string name="pref_download_languages_summary">Também buscar arquivos de idioma para outros idiomas definidos neste dispositivos. Downloads serão maiores</string>
+    <string name="pref_updates_warn_permissions">Avisar sobre permissões novas em atualizações de apps</string>
+    <string name="pref_updates_warn_permissions_desc">Mostrar um aviso antes de atualizar quando a nova versão solicita novas permissões que não estavam na versão instalada</string>
+    <string name="permission_warning_title">Novas permissões solicitadas</string>
+    <string name="permission_warning_desc">Esta atualização solicita permissões que a versão instalada não tem:</string>
+    <plurals name="updates_skipped_new_permissions">
+        <item quantity="one">Pulada %1$d atualização que solicita novas permissões</item>
+        <item quantity="many">Puladas %1$d atualizações que solicitam novas permissões</item>
+        <item quantity="other">Puladas %1$d atualizações que solicitam novas permissões</item>
+    </plurals>
+    <string name="permission_new">Nova</string>
+    <string name="details_play_listing">No Google Play</string>
+    <string name="details_top_chart">%1$s em %2$s</string>
+    <string name="action_continue">Continuar</string>
+    <string name="app_links_owned_title">Links do Play abrem em %1$s</string>
+    <string name="app_links_owned_desc">O Android não permite que a Aurora Store lide com links verificados por %1$s. Desative “Abrir links suportados” para ele antes e então permita a Aurora Store.</string>
+    <string name="app_links_owned_open">Abrir configurações</string>
+    <string name="review_developer_reply">Resposta do desenvolvedor</string>
+    <string name="permission_group_system">Sistema Android</string>
+    <string name="permission_group_other">Outros</string>
+    <string name="toast_beta_failed">Não foi possível atualizar a inscrição da beta</string>
+    <string name="toast_beta_left">Você saiu do programa de beta</string>
+    <string name="google_login_timeout">Google não respondeu a tempo. Por favor, entre novamente.</string>
+    <string name="toast_spoof_import_invalid">Configuração do dispositivo inválida, faltando ou campos malformatados</string>
+    <string name="toast_spoof_device_invalid">Simulação ativa do dispositivo é inválida, revertendo à padrão</string>
+    <string name="session_rejected">Google Play está rejeitando esta sessão. Se estiver usando uma VPN, tente outro servidor e então entre novamente.</string>
+    <string name="pref_ui_appearance">Aparência</string>
+    <string name="authentication_required_update_check">Verificar atualizações requer uma conta Google Play com sessão iniciada; sessões anônimas não conseguem fazer a verificação em massa ainda.</string>
+    <string name="permission_group_google">Google</string>
 </resources>

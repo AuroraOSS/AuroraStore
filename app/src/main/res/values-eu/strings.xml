@@ -636,4 +636,36 @@
         <item quantity="other">Ezin izan dira %1$d kontu freskatu</item>
     </plurals>
     <string name="download_sort_date_downloaded">Deskarga-data</string>
+    <string name="download_version_unavailable">%1$d bertsioa ez dago erabilgarri gailu honetarako</string>
+    <string name="download_signing_key_rotated">Hasi saioa Google kontu batekin aplikazio hau eguneratzeko: haren sinadura-gakoa aldatu da, eta deskarga anonimoek ezin dute hori kudeatu</string>
+    <string name="installer_status_aborted">Instalazioa bertan behera utzi da</string>
+    <string name="pref_download_languages_title">Deskargatu nire hizkuntza guztiak</string>
+    <string name="pref_download_languages_summary">Eskuratu gailu honetan ezarritako beste hizkuntzen fitxategiak ere. Deskargak handiagoak izango dira</string>
+    <string name="pref_updates_warn_permissions">Ohartarazi aplikazioen eguneratzeetako baimen berriez</string>
+    <string name="pref_updates_warn_permissions_desc">Erakutsi abisu bat eguneratu aurretik, bertsio berriak instalatutako bertsioan ez zeuden baimenak eskatzen dituenean</string>
+    <string name="permission_warning_title">Baimen berriak eskatu dira</string>
+    <string name="permission_warning_desc">Eguneratze honek instalatutako bertsioak ez dituen baimenak eskatzen ditu:</string>
+    <string name="permission_new">Berria</string>
+    <string name="details_play_listing">Google Play-n</string>
+    <string name="details_top_chart">%1$s %2$s atalean</string>
+    <string name="action_continue">Jarraitu</string>
+    <string name="app_links_owned_title">Play-ko estekak hemen irekitzen dira: %1$s</string>
+    <string name="app_links_owned_desc">Android-ek ez dio Aurora Store-ri utziko %1$s aplikazioak egiaztatutako estekak hartzen. Desaktibatu lehenik haren \"Ireki onartutako estekak\" aukera, eta eman gero baimen hau Aurora Store-ri.</string>
+    <string name="app_links_owned_open">Ireki ezarpenak</string>
+    <string name="review_developer_reply">Garatzailearen erantzuna</string>
+    <string name="permission_group_system">Android sistema</string>
+    <string name="permission_group_google">Google</string>
+    <string name="permission_group_other">Bestelakoa</string>
+    <string name="toast_beta_failed">Ezin izan da beta-programako izen-ematea eguneratu</string>
+    <string name="toast_beta_left">Beta programatik irten zara</string>
+    <string name="google_login_timeout">Google-k ez du garaiz erantzun. Hasi saioa berriro.</string>
+    <string name="toast_spoof_import_invalid">Gailu-konfigurazio baliogabea: eremuak falta dira edo gaizki eratuta daude</string>
+    <string name="toast_spoof_device_invalid">Gailu-faltsutze aktiboa baliogabea da; balio lehenetsira itzuli da</string>
+    <string name="session_rejected">Google Play-k saio hau baztertzen jarraitzen du. VPN bat erabiltzen ari bazara, probatu beste zerbitzari bat eta hasi saioa berriro.</string>
+    <string name="pref_ui_appearance">Itxura</string>
+    <string name="authentication_required_update_check">Eguneratzeak egiaztatzeko, Google Play kontu batekin saioa hasita egon behar da; saio anonimoek ezin dituzte oraindik eguneratzeak multzoka egiaztatu.</string>
+    <plurals name="updates_skipped_new_permissions">
+        <item quantity="one">Baimen berriak eskatzen dituen eguneratze %1$d saltatu da</item>
+        <item quantity="other">Baimen berriak eskatzen dituzten %1$d eguneratze saltatu dira</item>
+    </plurals>
 </resources>

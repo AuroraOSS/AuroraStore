@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="title_apps">Aplicacións</string>
     <string name="title_account_manager">Contas</string>
-    <string name="title_about">Sobre</string>
+    <string name="title_about">En canto a</string>
     <string name="tab_trending">Tendencia</string>
     <string name="tab_top_paid">De pago</string>
     <string name="tab_top_grossing">Máis rentábeis</string>
@@ -90,7 +90,7 @@
     <string name="download_completed">Descarga completada</string>
     <string name="download_canceled">Cancelada</string>
     <string name="download_cancel_all">Cancelar todas</string>
-    <string name="details_think_this_app">Que pensa da aplicación\?</string>
+    <string name="details_think_this_app">Que pensas da aplicación?</string>
     <string name="details_ratings">Avaliacións e comentarios</string>
     <string name="details_privacy">Privacidade</string>
     <string name="details_permission">Permisos</string>
@@ -100,7 +100,7 @@
     <string name="details_no_dependencies">Sen dependencias</string>
     <string name="details_no_app_match">Ningunha aplicación atopada</string>
     <string name="details_no_ads">Sen publicidade</string>
-    <string name="details_more_about_app">Sobre a aplicación</string>
+    <string name="details_more_about_app">En canto a aplicación</string>
     <string name="details_gsf_dependent">Require GSF</string>
     <string name="details_free">Gratuita</string>
     <string name="details_dev_website">Sitio Web</string>
@@ -352,7 +352,7 @@
     <string name="privacy_policy_subtitle">Aprende sobre como usa Aurora Store os teus datos</string>
     <string name="disclaimer_subtitle">Responsabilidade</string>
     <string name="made_with_love">Feito con <xliff:g id="heart_emoji">%1$s</xliff:g> en India</string>
-    <string name="about_aurora_store_title">Acerca de Aurora Store</string>
+    <string name="about_aurora_store_title">En canto a Aurora Store</string>
     <string name="about_aurora_store_subtitle">Máis información sobre Aurora Store</string>
     <string name="about_aurora_store_summary">Aurora Store permíteche a busca e a descarga de aplicacións da Google Play Store oficial. Podes consultar as descricións das aplicacións, as capturas de pantalla, as actualizacións e os comentarios doutros usuarios, así como descargar o ficheiro APK directamente desde Google Play ao teu dispositivo. Para usar Aurora Store, debes iniciar sesión coa túa conta de Google Play ao abrir e configurar a aplicación por primeira vez.\n\nA diferenza dunha tenda de aplicacións tradicional, Aurora Store non posúe, licencia nin distribúe ningunha aplicación. O acceso, a descarga e a visualización de todas as aplicacións, descricións, capturas de pantalla e demais contido de Aurora Store realízanse directamente desde Google Play. Aurora Store funciona exactamente coma unha porta de acceso ou un navegador, permitíndoche iniciar sesión na túa conta de Google Play e atopar as aplicacións dispoñibles nesa plataforma.\n\nTen en conta que Aurora Store non conta coa aprobación, o patrocinio nin a autorización de Google, Google Play, ningunha das aplicacións descargadas a través dela nin os seus desenvolvedores; tampouco mantén ningunha afiliación, colaboración nin vínculo con eles.</string>
     <string name="title_more">Máis</string>

@@ -636,4 +636,36 @@
         <item quantity="other">%1$d alkalmazásnak %2$s szükséges, de csak %3$s érhető el.</item>
     </plurals>
     <string name="download_sort_date_downloaded">Letöltés dátuma</string>
+    <string name="download_version_unavailable">A(z) %1$d verzió nem érhető el ezen az eszközön</string>
+    <string name="download_signing_key_rotated">Jelentkezzen be Google-fiókjával az alkalmazás frissítéséhez: az alkalmazás aláírókulcsa megváltozott, a névtelen letöltések pedig nem tudják kezelni ezt a változást</string>
+    <string name="installer_status_aborted">Telepítés megszakítva</string>
+    <string name="pref_download_languages_title">Összes saját nyelv letöltése</string>
+    <string name="pref_download_languages_summary">A többi beállított nyelv nyelvi fájljainak letöltése is. A letöltés nagyobb méretű lesz</string>
+    <string name="pref_updates_warn_permissions">Figyelmeztetés az alkalmazásfrissítésekben megjelenő új engedélyekre</string>
+    <string name="pref_updates_warn_permissions_desc">Figyelmeztetés megjelenítése frissítés előtt, ha az új verzió olyan engedélyeket kér, amelyek a telepített verzióban még nem szerepeltek</string>
+    <string name="permission_warning_title">Új engedélyekre vonatkozó figyelmeztetés</string>
+    <string name="permission_warning_desc">Ez a frissítés olyan engedélyeket kér, amelyekkel a telepített verzió még nem rendelkezik:</string>
+    <plurals name="updates_skipped_new_permissions">
+        <item quantity="one">%1$d olyan frissítés kihagyva, amely új engedélyeket kér</item>
+        <item quantity="other">%1$d olyan frissítés kihagyva, amely új engedélyeket kér</item>
+    </plurals>
+    <string name="permission_new">Új</string>
+    <string name="details_play_listing">A Google Play Áruházban</string>
+    <string name="details_top_chart">%1$s – %2$s kategóriában</string>
+    <string name="action_continue">Folytatás</string>
+    <string name="app_links_owned_title">A Play-hivatkozások megnyitása itt: %1$s</string>
+    <string name="app_links_owned_desc">Az Android nem engedélyezi, hogy az Aurora Store átvegye a(z) %1$s által ellenőrzött hivatkozások kezelését. Először kapcsolja ki a „Támogatott hivatkozások megnyitása” beállítást, majd engedélyezze ezt az Aurora Store számára.</string>
+    <string name="app_links_owned_open">Beállítások megnyitása</string>
+    <string name="review_developer_reply">Válasz a fejlesztőtől</string>
+    <string name="permission_group_system">Android-rendszer</string>
+    <string name="permission_group_google">Google</string>
+    <string name="permission_group_other">Egyéb</string>
+    <string name="toast_beta_failed">A bétaprogramban való részvétel állapotának frissítése nem sikerült</string>
+    <string name="toast_beta_left">Kilépett a bétaprogramból</string>
+    <string name="google_login_timeout">A Google nem válaszolt időben. Jelentkezzen be újra.</string>
+    <string name="toast_spoof_import_invalid">Érvénytelen eszközbeállítás: hiányzó vagy hibás formátumú mezők</string>
+    <string name="toast_spoof_device_invalid">Az aktív eszközálca érvénytelen, visszaállítva az alapértelmezett értékre</string>
+    <string name="session_rejected">A Google Play folyamatosan elutasítja ezt a munkamenetet. Ha VPN-t használ, próbáljon meg egy másik kiszolgálót, majd jelentkezzen be újra.</string>
+    <string name="pref_ui_appearance">Megjelenés</string>
+    <string name="authentication_required_update_check">A frissítések kereséséhez be kell jelentkezni egy Google Play-fiókba. A névtelen munkamenetekben egyelőre nem lehetséges a tömeges frissítéskeresés.</string>
 </resources>

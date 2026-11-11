@@ -339,7 +339,7 @@
     <string name="remove">Entfernen</string>
     <string name="remove_dispenser_summary">Möchtest du den Dispenser „<xliff:g id="url">%1$s</xliff:g>“ entfernen?</string>
     <string name="about_wiki_title">Wiki</string>
-    <string name="about_wiki_summary">Antworten auf häufig gestellte Fragen (FAQs), Maßnahmen zur Fehlerbehebung und mehr finden</string>
+    <string name="about_wiki_summary">Antworten auf häufig gestellte Fragen, Maßnahmen zur Fehlerbehebung und mehr finden</string>
     <string name="add_dispenser_title">Dispenser hinzufügen</string>
     <string name="add_dispenser_summary">Hinzufügen eines Token-Dispensers zu Aurora Store. Token-Dispenser stellen Aurora Store Kontodaten zur Verfügung, um sich anonym anzumelden.</string>
     <string name="remove_dispenser_title">Dispenser entfernen?</string>
@@ -636,4 +636,36 @@
         <item quantity="other">%1$d Apps benötigen %2$s, es sind jedoch nur %3$s verfügbar.</item>
     </plurals>
     <string name="download_sort_date_downloaded">Heruntergeladen am</string>
+    <string name="download_version_unavailable">Die Version %1$d ist für dieses Gerät nicht verfügbar</string>
+    <string name="download_signing_key_rotated">Melde dich mit einem Google-Konto an, um diese App zu aktualisieren: Der Signaturschlüssel hat sich geändert, und anonyme Downloads können damit nicht umgehen</string>
+    <string name="installer_status_aborted">Installation abgebrochen</string>
+    <string name="pref_download_languages_title">Alle meine Sprachen herunterladen</string>
+    <string name="pref_download_languages_summary">Außerdem werden Sprachdateien für die anderen auf diesem Gerät eingestellten Sprachen abgerufen. Die Downloads sind dann umfangreicher</string>
+    <string name="pref_updates_warn_permissions">Bei App-Updates vor neuen Berechtigungen warnen</string>
+    <string name="pref_updates_warn_permissions_desc">Vor dem Update eine Warnung anzeigen, wenn die neue Version Berechtigungen anfordert, die in der installierten Version nicht vorhanden waren</string>
+    <string name="permission_warning_title">Neue Berechtigungen angefordert</string>
+    <string name="permission_warning_desc">Dieses Update fordert Berechtigungen an, über die die installierte Version nicht verfügt:</string>
+    <plurals name="updates_skipped_new_permissions">
+        <item quantity="one">%1$d Update übersprungen, das neue Berechtigungen anfordert</item>
+        <item quantity="other">%1$d Updates übersprungen, die neue Berechtigungen anfordern</item>
+    </plurals>
+    <string name="permission_new">Neu</string>
+    <string name="details_play_listing">Bei Google Play</string>
+    <string name="details_top_chart">%1$s in %2$s</string>
+    <string name="action_continue">Weiter</string>
+    <string name="app_links_owned_title">Play-Links in %1$s öffnen</string>
+    <string name="app_links_owned_desc">Android lässt nicht zu, dass der Aurora Store die von %1$s verifizierten Links übernimmt. Deaktiviere zunächst „Unterstützte Links zu öffnen“ dafür und erteile dann dem Aurora Store die entsprechende Berechtigung.</string>
+    <string name="app_links_owned_open">Einstellungen öffnen</string>
+    <string name="review_developer_reply">Rückmeldung vom Entwickler</string>
+    <string name="permission_group_system">Android-System</string>
+    <string name="permission_group_google">Google</string>
+    <string name="permission_group_other">Sonstige</string>
+    <string name="toast_beta_failed">Die Beta-Anmeldung konnte nicht aktualisiert werden</string>
+    <string name="toast_beta_left">Du hast das Beta-Programm verlassen</string>
+    <string name="google_login_timeout">Google hat nicht rechtzeitig geantwortet. Bitte melde dich erneut an.</string>
+    <string name="toast_spoof_import_invalid">Ungültige Gerätekonfiguration, fehlende oder fehlerhafte Felder</string>
+    <string name="toast_spoof_device_invalid">Die aktive Gerätevortäuschung ist ungültig und wurde auf Standard zurückgesetzt</string>
+    <string name="session_rejected">Google Play lehnt diese Sitzung immer wieder ab. Wenn du ein VPN verwendest, wähle einen anderen Server aus und melde dich dann erneut an.</string>
+    <string name="pref_ui_appearance">Aussehen</string>
+    <string name="authentication_required_update_check">Um nach Updates zu suchen, muss ein Google-Play-Konto angemeldet sein; anonyme Sitzungen können derzeit noch keine Sammelabfrage durchführen.</string>
 </resources>

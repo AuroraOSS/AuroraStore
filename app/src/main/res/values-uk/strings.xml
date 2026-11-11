@@ -648,4 +648,38 @@
         <item quantity="other">%1$d застосункам потрібно %2$s, але доступно лише %3$s.</item>
     </plurals>
     <string name="download_sort_date_downloaded">Дата завантаження</string>
+    <string name="download_version_unavailable">Версія %1$d недоступна для цього пристрою</string>
+    <string name="download_signing_key_rotated">Увійдіть за допомогою облікового запису Google, щоб оновити цей застосунок: його ключ підпису змінився, і анонімні завантаження не можуть впоратися з цим</string>
+    <string name="installer_status_aborted">Встановлення скасовано</string>
+    <string name="pref_download_languages_title">Завантажити всі мої мови</string>
+    <string name="pref_download_languages_summary">Також отримайте мовні файли для інших мов, встановлених на цьому пристрої. Завантаження будуть більшими</string>
+    <string name="pref_updates_warn_permissions">Попереджати про нові дозволи в оновлених застосунках</string>
+    <string name="pref_updates_warn_permissions_desc">Показувати попередження перед оновленням, коли нова версія запитує дозволи, яких не було у встановленій версії</string>
+    <string name="permission_warning_title">Запитані нові дозволи</string>
+    <string name="permission_warning_desc">Це оновлення запитує дозволи, яких не має встановлена версія:</string>
+    <plurals name="updates_skipped_new_permissions">
+        <item quantity="one">Пропущено %1$d оновлення, яке запитує нові дозволи</item>
+        <item quantity="few">Пропущено %1$d оновлення, які запитують нові дозволи</item>
+        <item quantity="many">Пропущено %1$d оновлень, які запитують нові дозволи</item>
+        <item quantity="other">Пропущено %1$d оновлень, які запитують нові дозволи</item>
+    </plurals>
+    <string name="permission_new">Новий</string>
+    <string name="details_play_listing">У Google Play</string>
+    <string name="details_top_chart">%1$s у %2$s</string>
+    <string name="action_continue">Продовжити</string>
+    <string name="app_links_owned_title">Відтворити посилання, відкриті в %1$s</string>
+    <string name="app_links_owned_desc">Android не дозволить Aurora Store заволодіти посиланнями, перевіреними %1$s. Спочатку вимкніть «Відкрити підтримувані посилання» для нього, а потім надайте його Aurora Store.</string>
+    <string name="app_links_owned_open">Відкрити налаштування</string>
+    <string name="review_developer_reply">Відповідь від розробника</string>
+    <string name="permission_group_system">Система Android</string>
+    <string name="permission_group_google">Google</string>
+    <string name="permission_group_other">Інші</string>
+    <string name="toast_beta_failed">Не вдалося оновити реєстрацію бета-версії</string>
+    <string name="toast_beta_left">Ви залишили бета-програму</string>
+    <string name="google_login_timeout">Google не відповів вчасно. Увійдіть ще раз.</string>
+    <string name="toast_spoof_import_invalid">Некоректна конфігурація пристрою, відсутні або неправильно сформовані поля</string>
+    <string name="toast_spoof_device_invalid">Активна підробка пристрою недійсна, повернуто до типової</string>
+    <string name="session_rejected">Google Play продовжує відхиляти цей сеанс. Якщо ви використовуєте VPN, спробуйте інший сервер, а потім увійдіть знову.</string>
+    <string name="pref_ui_appearance">Вигляд</string>
+    <string name="authentication_required_update_check">Для перевірки оновлень потрібен обліковий запис Google Play, який увійшов у систему; анонімні сеанси поки що не можна перевіряти масово.</string>
 </resources>

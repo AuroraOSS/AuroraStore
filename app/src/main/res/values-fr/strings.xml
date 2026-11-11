@@ -269,7 +269,7 @@
     <string name="title_search_results">Résultats de la recherche</string>
     <string name="failed_generating_session">Échec de génération de la session. Code d’erreur : <xliff:g id="status_code">%1$d</xliff:g></string>
     <string name="failed_to_fetch_report">Échec de récupération du relevé de confidentialité</string>
-    <string name="access_denied_using_vpn">Accès refusé ! Utilisez-vous un VPN ou Tor ?</string>
+    <string name="access_denied_using_vpn">L’accès a été refusé. Utilisez-vous un RPV/VPN ou Tor ?</string>
     <string name="bad_request">Erreur interne ! Réessayez plus tard</string>
     <string name="login_rate_limited">Votre débit est limité</string>
     <string name="server_unreachable">Impossible d’accéder au serveur</string>
@@ -530,7 +530,7 @@
     <string name="app_lock_unlock">Déverrouiller</string>
     <string name="app_lock_prompt_title">Déverrouiller Aurora Store</string>
     <string name="app_lock_prompt_subtitle">Saisissez le schéma de verrouillage de l\'écran, le code d’accès, le mot de passe ou votre empreinte digitale</string>
-    <string name="notification_channel_alerts">Erreurs &amp; alertes</string>
+    <string name="notification_channel_alerts">Erreurs et alertes</string>
     <string name="notification_group_activity">Téléchargements et mises à jour</string>
     <string name="notification_group_alerts">Alertes</string>
     <string name="pref_self_update_desc">Proposer les nouvelles versions de Aurora Store dans l’onglet Mises à jour.</string>
@@ -570,7 +570,7 @@
     <string name="confirm_deeplink_sheet_message">Une appli externe veut ouvrir Aurora Store</string>
     <string name="confirm_deeplink_sheet_source">Ouvert à partir de %1$s</string>
     <string name="title_install_favourites">Installer les favoris ?</string>
-    <string name="install_favourites_summary">Cela permettra de télécharger et d\'installer %1$d applis.</string>
+    <string name="install_favourites_summary">%1$d applis seront téléchargées et installées.</string>
     <string name="install_favourites_warning">Il se peut qu\'une invite d\'installation distincte s\'affiche pour chaque appli.</string>
     <string name="pref_ui_dynamic_color">Couleurs dynamiques</string>
     <string name="pref_ui_dynamic_color_desc">Utilisez les couleurs de votre fond d’écran. Désactivez la palette de couleurs d’Aurora.</string>
@@ -580,7 +580,7 @@
     <plurals name="favourites_count">
         <item quantity="one">%1$d favori</item>
         <item quantity="many">%1$d de favoris</item>
-        <item quantity="other">%1$d favori</item>
+        <item quantity="other">%1$d favoris</item>
     </plurals>
     <string name="account_set_default">Définir comme compte par défaut</string>
     <string name="account_default">Par défaut</string>
@@ -608,9 +608,9 @@
         <item quantity="other">Total %1$d comptes</item>
     </plurals>
     <plurals name="account_refresh_failed">
-        <item quantity="one">Impossible d’actualiser %1$d compte</item>
+        <item quantity="one">Impossible d’actualiser %1$d compte</item>
         <item quantity="many">Impossible d’actualiser %1$d de comptes</item>
-        <item quantity="other">Impossible d’actualiser %1$d de comptes</item>
+        <item quantity="other">Impossible d’actualiser %1$d comptes</item>
     </plurals>
     <string name="account_exists">Le compte est déjà ajouté</string>
     <string name="action_update_anyway">Mettre à jour quand même</string>
@@ -642,4 +642,37 @@
     <string name="download_sort_date_downloaded">Date de téléchargement</string>
     <string name="notification_none">Il n’y a rien ici</string>
     <string name="installer_provider">%1$s · Servi par %2$s</string>
+    <string name="download_version_unavailable">La version %1$d n’est pas proposée pour cet appareil</string>
+    <string name="download_signing_key_rotated">Connectez-vous avec un compte Google pour mettre à jour cette appli : sa clé de signature a changé et les téléchargements anonymes ne peuvent pas gérer ce changement</string>
+    <string name="installer_status_aborted">L’installation a été annulée</string>
+    <string name="pref_download_languages_title">Télécharger toutes mes langues</string>
+    <string name="pref_download_languages_summary">Récupérez aussi les fichiers de langue pour les autres langues configurées sur cet appareil. Les téléchargements seront plus volumineux.</string>
+    <string name="pref_updates_warn_permissions">Signaler les nouvelles autorisations lors des mises à jour de l’appli</string>
+    <string name="pref_updates_warn_permissions_desc">Afficher un avertissement avant la mise à jour si la nouvelle version demande des autorisations qui n’étaient pas requises dans la version installée</string>
+    <string name="permission_warning_title">Nouvelles autorisations demandées</string>
+    <string name="permission_warning_desc">Cette mise à jour demande des autorisations dont la version installée ne dispose pas :</string>
+    <string name="toast_spoof_import_invalid">La configuration du périphérique est invalide. Des champs manquent ou sont mal formés</string>
+    <string name="toast_spoof_device_invalid">L’usurpation de l’appareil actif est invalide ; retour aux paramètres par défaut</string>
+    <string name="session_rejected">Google Play refuse systématiquement cette session. Si vous utilisez un RPV/VPN, essayez un autre serveur, puis reconnectez-vous.</string>
+    <string name="pref_ui_appearance">Apparence</string>
+    <string name="authentication_required_update_check">Pour vérifier la disponibilité des mises à jour, il faut être connecté à un compte Google Play ; les sessions anonymes ne permettent pas encore d\'effectuer des vérifications groupées.</string>
+    <string name="permission_new">Nouveau</string>
+    <string name="details_play_listing">Sur Google Play</string>
+    <string name="details_top_chart">%1$s dans %2$s</string>
+    <string name="action_continue">Poursuivre</string>
+    <string name="app_links_owned_title">Les liens vers les vidéos s’ouvrent dans %1$s</string>
+    <string name="app_links_owned_desc">Android ne permet pas à Aurora Store de prendre en charge les liens que %1$s a vérifiés. Désactivez d\'abord l\'option « Ouvrir les liens pris en charge » pour cette application, puis accordez cette autorisation à Aurora Store.</string>
+    <string name="app_links_owned_open">Ouvrir les paramètres</string>
+    <string name="review_developer_reply">Réponse du développeur</string>
+    <string name="permission_group_system">Système Android</string>
+    <string name="permission_group_google">Google</string>
+    <string name="permission_group_other">Autres</string>
+    <string name="toast_beta_failed">Impossible de mettre à jour l\'inscription à la version bêta</string>
+    <string name="toast_beta_left">Vous avez quitté le programme bêta</string>
+    <string name="google_login_timeout">Google n\'a pas répondu à temps. Veuillez vous reconnecter.</string>
+    <plurals name="updates_skipped_new_permissions">
+        <item quantity="one">%1$d mise à jour demandant de nouvelles autorisations a été ignorée</item>
+        <item quantity="many">%1$d mises à jour demandant de nouvelles autorisations ont été ignorées</item>
+        <item quantity="other">%1$d mises à jour demandant de nouvelles autorisations ont été ignorées</item>
+    </plurals>
 </resources>

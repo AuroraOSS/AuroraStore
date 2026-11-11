@@ -330,7 +330,7 @@
     <string name="pref_clear_device_owner_title">Удалить запись о владельце устройства</string>
     <string name="pref_clear_device_owner_summary">Удаляет Aurora Store как приложение владельца устройства</string>
     <string name="pref_clear_device_owner_desc">Это удалит разрешение у session installer на автоматическую установку приложений. Продолжить?</string>
-    <string name="about_wiki_title">Wiki</string>
+    <string name="about_wiki_title">Вики</string>
     <string name="pref_dispenser_summary">Просмотр и управление распределителями токенов для анонимной авторизации</string>
     <string name="add">Добавить</string>
     <string name="session_login">Пожалуйста, войдите в свой профиль Google Play</string>
@@ -648,4 +648,38 @@
         <item quantity="other">%1$d приложениям требуется %2$s, но доступно только %3$s.</item>
     </plurals>
     <string name="download_sort_date_downloaded">Дата загрузки</string>
+    <string name="download_version_unavailable">Версия %1$d недоступна для этого устройства</string>
+    <string name="download_signing_key_rotated">Чтобы обновить это приложение, авторзуйтесь с помощью аккаунта Google: ключ подписи изменился, поэтому анонимные загрузки не могут его обработать</string>
+    <string name="installer_status_aborted">Установка отменена</string>
+    <string name="pref_download_languages_title">Скачать все мои языки</string>
+    <string name="pref_download_languages_summary">Также скачать языковые файлы для других языков, настроенных на этом устройстве. Объем загружаемых файлов будет больше</string>
+    <string name="pref_updates_warn_permissions">Предупреждать о новых разрешениях в обновлениях приложения</string>
+    <string name="pref_updates_warn_permissions_desc">Перед обновлением выводить предупреждение, если новая версия запрашивает разрешения, которых не было в установленной версии</string>
+    <string name="permission_warning_title">Запрошены новые разрешения</string>
+    <string name="permission_warning_desc">Данное обновление запрашивает разрешения, которых у установленной версии нет:</string>
+    <plurals name="updates_skipped_new_permissions">
+        <item quantity="one">Пропущено %1$d обновление, требующее новых разрешений</item>
+        <item quantity="few">Пропущено %1$d обновления, требующих новых разрешений</item>
+        <item quantity="many">Пропущено %1$d обновлений, требующих новых разрешений</item>
+        <item quantity="other">Пропущено %1$d обновлений, требующих новых разрешений</item>
+    </plurals>
+    <string name="permission_new">Новые</string>
+    <string name="details_play_listing">В Google Play</string>
+    <string name="details_top_chart">%1$s из %2$s</string>
+    <string name="action_continue">Продолжить</string>
+    <string name="app_links_owned_title">Ссылки на Play открываются в %1$s</string>
+    <string name="app_links_owned_desc">Android не позволяет приложению Aurora Store открывать ссылки, авторизованные %1$s. Сначала отключите для него функцию Открывать поддерживаемые ссылки, а затем предоставьте это право приложению Aurora Store.</string>
+    <string name="app_links_owned_open">Открыть настройки</string>
+    <string name="review_developer_reply">Ответ разработчика</string>
+    <string name="permission_group_system">Система Android</string>
+    <string name="permission_group_google">Google</string>
+    <string name="permission_group_other">Другие</string>
+    <string name="toast_beta_failed">Не удалось обновить регистрацию в бета-версии</string>
+    <string name="toast_beta_left">Вы вышли из бета-программы</string>
+    <string name="google_login_timeout">Google не ответил вовремя. Пожалуйста, авторизуйтесь заново.</string>
+    <string name="toast_spoof_import_invalid">Неверная конфигурация устройства: отсутствуют или неправильно сформированы поля</string>
+    <string name="toast_spoof_device_invalid">Спуфинг активного устройства недопустим, восстановлены настройки по умолчанию</string>
+    <string name="session_rejected">Google Play продолжает отклонять эту сессию. Если вы используете VPN, попробуйте подключиться к другому серверу, а затем повторите авторизацию.</string>
+    <string name="pref_ui_appearance">Внешний вид</string>
+    <string name="authentication_required_update_check">Для проверки обновлений требуется авторизоваться в аккаунте Google Play; в режиме анонимного доступа проверка сразу нескольких обновлений пока невозможна.</string>
 </resources>

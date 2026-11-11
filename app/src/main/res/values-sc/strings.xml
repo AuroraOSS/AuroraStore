@@ -428,7 +428,7 @@
     <string name="pref_ui_layout_tab">Ischerta s\'ischeda predefinida</string>
     <string name="app_links_title">Ligàmenes de sas aplicatziones</string>
     <string name="app_links_desc">Permite a Aurora Store de abèrrere sos ligàmenes suportados</string>
-    <string name="google_play_store_desc">Google Play, connotu fintzas comente Google Play Store e prima Android Market.</string>
+    <string name="google_play_store_desc">Google Play, connotu fintzas comente Google Play Store e in antis Android Market.</string>
     <string name="android_market_desc">Android Market fiat una butega in lìnia chi fruniat aplicatziones pensadas pro sos dispositivos Android, serrada in su 2017.</string>
     <string name="failed_apk_export">Esportatzione de sos APK fallida</string>
     <string name="no_apps_available">Peruna aplicatzione a disponimentu</string>

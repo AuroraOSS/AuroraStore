@@ -7,7 +7,7 @@
     <string name="details_gsf_dependent">Wymaga GSF</string>
     <string name="details_free">Darmowa</string>
     <string name="details_dev_website">Strona internetowa</string>
-    <string name="details_dev_profile">Profil programisty</string>
+    <string name="details_dev_profile">Profil dewelopera</string>
     <string name="details_dev_email">E-mail</string>
     <string name="details_dev_details">Kontakt z deweloperem</string>
     <string name="details_dev_address">Adres</string>
@@ -100,7 +100,7 @@
     <string name="toast_apk_blacklisted">Dodano do czarnej listy</string>
     <string name="toast_anonymous_restriction">Niedostępne na kontach anonimowych</string>
     <string name="title_updates">Aktualizacje</string>
-    <string name="title_spoof_manager">Menedżer podmiany</string>
+    <string name="title_spoof_manager">Menedżer emulacji</string>
     <string name="title_settings">Ustawienia</string>
     <string name="title_purchase_history">Historia zakupów</string>
     <string name="title_no_network">Brak internetu</string>
@@ -648,4 +648,38 @@
         <item quantity="many">%1$d aplikacji wymaga %2$s, ale dostępne jest tylko %3$s.</item>
         <item quantity="other">%1$d aplikacji wymaga %2$s, ale dostępne jest tylko %3$s.</item>
     </plurals>
+    <string name="download_version_unavailable">Wersja %1$d nie jest dostępna dla tego urządzenia</string>
+    <string name="installer_status_aborted">Instalacja anulowana</string>
+    <string name="pref_download_languages_title">Pobierz wszystkie moje języki</string>
+    <string name="pref_updates_warn_permissions">Ostrzegaj o nowych uprawnieniach w aktualizowanych aplikacjach</string>
+    <string name="pref_updates_warn_permissions_desc">Pokaż ostrzeżenie przed aktualizacją, gdy nowa wersja wymaga uprawnień, których nie było w zainstalowanej wersji</string>
+    <string name="permission_warning_title">Wymagane są nowe uprawnienia</string>
+    <string name="permission_warning_desc">Ta aktualizacja wymaga uprawnień, których nie posiada zainstalowana wersja:</string>
+    <plurals name="updates_skipped_new_permissions">
+        <item quantity="one">Pominięto %1$d aktualizację wymagającą nowych uprawnień</item>
+        <item quantity="few">Pominięto %1$d aktualizacje wymagające nowych uprawnień</item>
+        <item quantity="many">Pominięto %1$d aktualizacji wymagających nowych uprawnień</item>
+        <item quantity="other">Pominięto %1$d aktualizacji wymagających nowych uprawnień</item>
+    </plurals>
+    <string name="permission_new">Nowe</string>
+    <string name="details_play_listing">W Google Play</string>
+    <string name="action_continue">Kontynuuj</string>
+    <string name="app_links_owned_open">Otwórz ustawienia</string>
+    <string name="review_developer_reply">Odpowiedź od dewelopera</string>
+    <string name="permission_group_system">System Android</string>
+    <string name="permission_group_google">Google</string>
+    <string name="permission_group_other">Inna</string>
+    <string name="pref_ui_appearance">Wygląd</string>
+    <string name="toast_spoof_import_invalid">Nieprawidłowa konfiguracja urządzenia: brak wymaganych pól lub błędnie sformatowane pola</string>
+    <string name="google_login_timeout">Google nie odpowiedział w wyznaczonym czasie. Zaloguj się ponownie.</string>
+    <string name="toast_beta_left">Opuściłeś program beta</string>
+    <string name="toast_beta_failed">Nie udało się zaktualizować rejestracji w programie beta</string>
+    <string name="app_links_owned_title">Linki do Google Play są otwierane w %1$s</string>
+    <string name="pref_download_languages_summary">Pobierz również pliki językowe dla innych języków używanych na tym urządzeniu. Rozmiar pliku do pobrania będzie większy</string>
+    <string name="authentication_required_update_check">Sprawdzanie aktualizacji wymaga zalogowanie się na konto Google Play. Sesje anonimowe nie obsługują jeszcze zbiorczego sprawdzania aktualizacji.</string>
+    <string name="session_rejected">Google Play odrzucił bieżącą sesję. Jeśli korzystasz z VPN, spróbuj zmienić serwer i zaloguj się ponownie.</string>
+    <string name="toast_spoof_device_invalid">Aktywna emulacja urządzenia jest nieprawidłowa. Przywrócono ustawienia domyślne</string>
+    <string name="details_top_chart">%1$s w %2$s</string>
+    <string name="download_signing_key_rotated">Zaloguj się za pomocą konta Google, aby zaktualizować tę aplikację: zmienił się jej klucz podpisujący, a anonimowe pobrania nie obsługują tej zmiany</string>
+    <string name="app_links_owned_desc">System Android nie pozwala aplikacji Aurora Store przejmować linków, co potwierdził %1$s. Najpierw wyłącz dla niej opcję „Otwieraj obsługiwane linki”, a następnie przyznaj to uprawnienie aplikacji Aurora Store.</string>
 </resources>
